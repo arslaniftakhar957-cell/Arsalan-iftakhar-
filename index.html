@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ScoreLab AI Tools</title>
 <style>
-body{font-family:system-ui;background:#f8fafc;margin:0;padding:16px;color:#111}
-.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-h1{color:#1d4ed8;text-align:center} button{background:#2563eb;color:#fff;border:0;padding:12px 16px;border-radius:10px;width:100%;font-size:16px;margin-top:10px;cursor:pointer}
-textarea,input{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;font-size:15px;box-sizing:border-box}
-pre{background:#f1f5f9;padding:12px;border-radius:10px;white-space:pre-wrap;min-height:60px}
-.tabs{display:flex;gap:8px;margin-bottom:12px}
-.tab{flex:1;text-align:center;padding:10px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}
-.active{background:#2563eb;color:#fff}
+body{font-family:system-ui;background:#f0f4ff;margin:0;padding:16px}
+h1{color:#1d4ed8;text-align:center;margin:10px 0}
+.card{background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin-bottom:14px}
+button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:10px;width:100%;font-size:16px;margin-top:8px;font-weight:600}
+.copy{background:#16a34a}
+input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;box-sizing:border-box;font-size:15px}
+pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line-height:1.6;border:1px solid #e2e8f0}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;text-align:center;padding:11px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}.active{background:#2563eb;color:#fff}
 </style>
 </head>
 <body>
 <h1>ScoreLab AI Tools</h1>
-
-<div class="tabs">
-<div class="tab active" id="tab0">Script</div>
-<div class="tab" id="tab1">Thumbnail</div>
-<div class="tab" id="tab2">Hashtags</div>
-</div>
+<div class="tabs"><div class="tab active" id="tab0">Script Writer</div><div class="tab" id="tab1">Thumbnail</div><div class="tab" id="tab2">SEO Kit</div></div>
 
 <div class="card" id="t0">
-<h3>YouTube Script Writer</h3>
-<input id="topic" placeholder="Video topic likho... ex: iPhone 17 review">
-<button id="b0">Generate Script</button>
-<pre id="outScript">Yahan script aayega...</pre>
+<h3>YouTube Script Writer (Free Pro)</h3>
+<input id="topic" placeholder="Topic likho: iPhone 17 review">
+<button id="b0">Generate Viral Script</button>
+<pre id="o0">Yahan best script aayega...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o0').innerText);alert('Copied!')">Copy Script</button>
 </div>
 
 <div class="card" id="t1" style="display:none">
-<h3>YouTube Thumbnail Ideas</h3>
-<input id="ttopic" placeholder="Video topic likho...">
-<button id="b1">Generate Ideas</button>
-<pre id="outThumb">Yahan ideas aayenge...</pre>
+<h3>Thumbnail Ideas (Free Pro)</h3>
+<input id="ttopic" placeholder="Topic likho: Biryani Challenge">
+<button id="b1">Generate 10 Viral Ideas</button>
+<pre id="o1">Yahan ideas aayenge...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o1').innerText);alert('Copied!')">Copy Ideas</button>
 </div>
 
 <div class="card" id="t2" style="display:none">
-<h3>YouTube Hashtag Creator</h3>
-<input id="htopic" placeholder="Video topic likho...">
-<button id="b2">Generate Hashtags</button>
-<pre id="outHash">Yahan hashtags aayenge...</pre>
+<h3>YouTube SEO Kit (Free Pro)</h3>
+<input id="htopic" placeholder="Topic likho: cricket highlights">
+<button id="b2">Generate Title + Tags</button>
+<pre id="o2">Yahan SEO aayega...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o2').innerText);alert('Copied!')">Copy SEO</button>
 </div>
 
 <script>
-document.getElementById('tab0').onclick=function(){show(0)};
-document.getElementById('tab1').onclick=function(){show(1)};
-document.getElementById('tab2').onclick=function(){show(2)};
-function show(n){
-for(let i=0;i<3;i++){
-document.getElementById('t'+i).style.display=i===n?'block':'none';
-document.getElementById('tab'+i).className='tab'+(i===n?' active':'');
-}
-}
-document.getElementById('b0').onclick=function(){
-let t=document.getElementById('topic').value.trim();
-if(!t) t='My Video';
-document.getElementById('outScript').innerText="HOOK (0-10s):\nStop! "+t+" ke baare me ye 3 baatein koi nahi batayega.\n\nINTRO:\nAssalam o Alaikum dosto, welcome to ScoreLab AI Tools.\n\nMAIN POINTS:\n1. "+t+" kya hai?\n2. Iske 3 faide\n3. Mera honest opinion\n\nCTA:\nVideo pasand aaye to Like Subscribe zaroor karna.";
+function show(n){for(let i=0;i<3;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
+tab0.onclick=()=>show(0);tab1.onclick=()=>show(1);tab2.onclick=()=>show(2);
+
+b0.onclick=()=>{
+let t=topic.value.trim()||"My Video";
+o0.innerText=`VIRAL TITLE: ${t} - 5 Things No One Tells You! (2026)\n\n[0-15s HOOK]\nDosto ruk jao! Agar aap ${t} ke baare me ye video skip kar doge to aapko baad me pachtawa hoga. Kyunki number 4 wala point sabse important hai.\n\n[INTRO]\nAssalam-o-Alaikum! Welcome to ScoreLab AI Tools. Aaj hum baat karenge ${t} ki complete detail me.\n\n[MAIN CONTENT]\nPehli baat: ${t} me sabse bari ghalti jo 90% log karte hain, wo hai...\nDusri baat: Mene khud ${t} ko test kiya aur mujhe ye 3 faide mile:\n1. Time saving trick\n2. Money saving hack\n3. Pro result without effort\n\nTeesri baat: Agar aap beginner hain to ${t} ko is tarike se start karen...\n\n[ENGAGEMENT]\nComment me batao, kya aapne pehle kabhi ${t} try kiya?\n\n[CTA]\nVideo achi lagi to LIKE karo, apne dost ke sath SHARE karo, aur ScoreLab ko SUBSCRIBE karna mat bhoolna taake aisi videos milti rahen.`;
 };
-document.getElementById('b1').onclick=function(){
-let t=document.getElementById('ttopic').value.trim()||'Video';
-document.getElementById('outThumb').innerText="1. "+t.toUpperCase()+" 😱 | Red Arrow + Shocked Face\n2. Before vs After - "+t+"\n3. 3 Secrets of "+t+"\n4. I Tried "+t+" - Shocking Result\n5. Big ? + "+t+" Photo (Yellow text)";
+
+b1.onclick=()=>{
+let t=ttopic.value.trim()||"Video"; let U=t.toUpperCase();
+o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n   Design: Yellow text, red stroke, shocked face left\n\n2. I Tried ${t}!\n   Design: Before/After split\n\n3. ${t} Gone Wrong ❌\n   Design: Black bg, red cross\n\n4. 3 Secrets of ${t}\n   Design: 3 circles with ?\n\n5. STOP! Don't Do ${t}\n   Design: Hand stop gesture\n\n6. ${t} in 2026?!\n   Design: Big question mark\n\n7. $0 vs $100 ${t}\n   Design: Money comparison\n\n8. Why ${t} is Viral?\n   Design: Upward graph arrow\n\n9. Real Truth of ${t}\n   Design: Magnifying glass\n\n10. ${t} Challenge Accepted!\n   Design: Fire background`;
 };
-document.getElementById('b2').onclick=function(){
-let raw=document.getElementById('htopic').value.trim().toLowerCase()||'video';
-let t=raw.replace(/[^a-z0-9]/g,'');
-document.getElementById('outHash').innerText="#"+t+" #youtubepk #viralvideo #"+t+"2026 #trending #scorelab #foryou #pakistanyoutuber";
+
+b2.onclick=()=>{
+let t=htopic.value.trim()||"my video";
+let tag=t.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim().replace(/ +/g,'');
+o2.innerText=`OPTIMIZED TITLE (Copy one):\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n2. I Tried ${t} - Here's What Happened!\n3. ${t} Explained in 5 Minutes!\n\nDESCRIPTION:\nWelcome to ScoreLab AI Tools!\n\nIn today's video, we talk about ${t} in complete Urdu/Hindi detail.\n\n⏱️ TIMESTAMPS:\n00:00 - Intro\n01:00 - Main Topic: ${t}\n05:00 - Pro Tips\n07:00 - Final Verdict\n\n👉 Subscribe: For daily ${t} videos\n\nHASHTAGS:\n#${tag} #${tag}2026 #youtubeseo #viralvideo #trendingpakistan #foryoupage #scorelabaitools\n\nTAGS:\n${t}, ${t} 2026, ${t} tutorial, ${t} review, pakistan youtube`;
 };
 show(0);
 </script>
