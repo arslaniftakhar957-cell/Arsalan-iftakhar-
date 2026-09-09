@@ -7,11 +7,12 @@
 body{font-family:system-ui;background:#f0f4ff;margin:0;padding:16px}
 h1{color:#1d4ed8;text-align:center;margin:10px 0}
 .card{background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin-bottom:14px}
-button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:10px;width:100%;font-size:16px;margin-top:8px;font-weight:600}
+button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:10px;width:100%;font-size:16px;margin-top:8px;font-weight:600;cursor:pointer}
 .copy{background:#16a34a}
 input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;box-sizing:border-box;font-size:15px}
 pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line-height:1.6;border:1px solid #e2e8f0}
 .tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;text-align:center;padding:11px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}.active{background:#2563eb;color:#fff}
+.premium{border:2px solid #2563eb;background:#eff6ff}
 </style>
 </head>
 <body>
@@ -42,6 +43,14 @@ pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line
 <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o2').innerText);alert('Copied!')">Copy SEO</button>
 </div>
 
+<div class="card premium">
+<h3>🔥 Premium Kits - Level Up Karo</h3>
+<p>Free tools pasand aaye? Ab pro bano:</p>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')">1. Get 500 Prompts - Grow Study Earn</button>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')" style="background:#7c3aed">2. Get YouTube Automation Kit</button>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0f766e">3. Get IELTS Band 7 Kit</button>
+</div>
+
 <script>
 function show(n){for(let i=0;i<3;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
 tab0.onclick=()=>show(0);tab1.onclick=()=>show(1);tab2.onclick=()=>show(2);
@@ -53,13 +62,13 @@ o0.innerText=`VIRAL TITLE: ${t} - 5 Things No One Tells You! (2026)\n\n[0-15s HO
 
 b1.onclick=()=>{
 let t=ttopic.value.trim()||"Video"; let U=t.toUpperCase();
-o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n   Design: Yellow text, red stroke, shocked face left\n\n2. I Tried ${t}!\n   Design: Before/After split\n\n3. ${t} Gone Wrong ❌\n   Design: Black bg, red cross\n\n4. 3 Secrets of ${t}\n   Design: 3 circles with ?\n\n5. STOP! Don't Do ${t}\n   Design: Hand stop gesture\n\n6. ${t} in 2026?!\n   Design: Big question mark\n\n7. $0 vs $100 ${t}\n   Design: Money comparison\n\n8. Why ${t} is Viral?\n   Design: Upward graph arrow\n\n9. Real Truth of ${t}\n   Design: Magnifying glass\n\n10. ${t} Challenge Accepted!\n   Design: Fire background`;
+o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n2. I Tried ${t}!\n3. ${t} Gone Wrong ❌\n4. 3 Secrets of ${t}\n5. STOP! Don't Do ${t}\n6. ${t} in 2026?!\n7. $0 vs $100 ${t}\n8. Why ${t} is Viral?\n9. Real Truth of ${t}\n10. ${t} Challenge Accepted!`;
 };
 
 b2.onclick=()=>{
 let t=htopic.value.trim()||"my video";
 let tag=t.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim().replace(/ +/g,'');
-o2.innerText=`OPTIMIZED TITLE (Copy one):\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n2. I Tried ${t} - Here's What Happened!\n3. ${t} Explained in 5 Minutes!\n\nDESCRIPTION:\nWelcome to ScoreLab AI Tools!\n\nIn today's video, we talk about ${t} in complete Urdu/Hindi detail.\n\n⏱️ TIMESTAMPS:\n00:00 - Intro\n01:00 - Main Topic: ${t}\n05:00 - Pro Tips\n07:00 - Final Verdict\n\n👉 Subscribe: For daily ${t} videos\n\nHASHTAGS:\n#${tag} #${tag}2026 #youtubeseo #viralvideo #trendingpakistan #foryoupage #scorelabaitools\n\nTAGS:\n${t}, ${t} 2026, ${t} tutorial, ${t} review, pakistan youtube`;
+o2.innerText=`OPTIMIZED TITLE:\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n2. I Tried ${t} - Here's What Happened!\n\nDESCRIPTION:\nIn today's video, we talk about ${t} in complete detail.\nSubscribe to ScoreLab AI Tools for more.\n\nHASHTAGS:\n#${tag} #${tag}2026 #viralvideo #trendingpakistan #scorelabaitools`;
 };
 show(0);
 </script>
