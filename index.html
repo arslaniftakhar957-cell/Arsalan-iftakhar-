@@ -3,94 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ScoreLab YouTube AI</title>
+<title>ScoreLab AI Tools</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
-body{background:#0a0e1a;color:#fff;min-height:100vh}
-header{background:linear-gradient(135deg,#1a2340,#0d1230);padding:20px;text-align:center;border-bottom:2px solid #00d4ff}
-header h1{font-size:26px;background:linear-gradient(90deg,#00d4ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.keybox{background:#111832;padding:15px;text-align:center;border-bottom:1px solid #2a3a5f}
-.keybox input{max-width:400px;display:inline-block}
-.tabs{display:flex;justify-content:center;gap:10px;padding:20px;flex-wrap:wrap}
-.tab-btn{background:#1a2340;border:1px solid #2a3a5f;color:#fff;padding:12px 24px;border-radius:10px;cursor:pointer}
-.tab-btn.active{background:linear-gradient(135deg,#00d4ff,#7b2ff7);border:none}
-.container{max-width:700px;margin:0 auto;padding:0 20px 40px}
-.card{background:#111832;border:1px solid #2a3a5f;border-radius:15px;padding:25px;margin-top:10px}
-.card h2{margin-bottom:15px;color:#00d4ff}
-input,select{width:100%;background:#0a0e1a;border:1px solid #2a3a5f;color:#fff;padding:12px;border-radius:10px;margin-bottom:12px}
-button.gen{width:100%;background:linear-gradient(135deg,#00d4ff,#7b2ff7);border:none;color:#fff;padding:14px;border-radius:10px;font-size:16px;cursor:pointer;font-weight:bold}
-.output{background:#0a0e1a;border:1px solid #00d4ff55;border-radius:10px;padding:15px;margin-top:15px;white-space:pre-wrap;min-height:100px;line-height:1.6}
-.hidden{display:none}
-.copy-btn{margin-top:10px;background:#1a2340;border:1px solid #00d4ff;color:#00d4ff;padding:8px 20px;border-radius:8px;cursor:pointer}
+body{font-family:system-ui;background:#f8fafc;margin:0;padding:16px;color:#111}
+.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+h1{color:#1d4ed8;text-align:center} button{background:#2563eb;color:#fff;border:0;padding:12px 16px;border-radius:10px;width:100%;font-size:16px;margin-top:10px;cursor:pointer}
+textarea,input{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;font-size:15px;box-sizing:border-box}
+pre{background:#f1f5f9;padding:12px;border-radius:10px;white-space:pre-wrap;min-height:60px}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{flex:1;text-align:center;padding:10px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}
+.active{background:#2563eb;color:#fff}
 </style>
 </head>
 <body>
-<header><h1>ScoreLab YouTube AI</h1><p>Powered by Gemini</p></header>
-<div class="keybox">
-<input type="password" id="apiKey" placeholder="Paste your Gemini API Key here (only first time)">
-<button class="copy-btn" onclick="saveKey()">Save Key</button>
-</div>
+<h1>ScoreLab AI Tools</h1>
+
 <div class="tabs">
-<button class="tab-btn active" onclick="showTab('script',event)">Script Writer</button>
-<button class="tab-btn" onclick="showTab('hook',event)">Hook Generator</button>
-<button class="tab-btn" onclick="showTab('tags',event)">Hashtags</button>
+<div class="tab active" id="tab0">Script</div>
+<div class="tab" id="tab1">Thumbnail</div>
+<div class="tab" id="tab2">Hashtags</div>
 </div>
-<div class="container">
-<div id="tab-script" class="card">
-<h2>Script Writer</h2>
-<input id="s-topic" placeholder="Video topic">
-<select id="s-tone"><option>Energetic</option><option>Professional</option><option>Funny</option></select>
-<button class="gen" onclick="genScript()">Generate with AI</button>
-<div id="s-out" class="output">Result here...</div>
-<button class="copy-btn" onclick="copyText('s-out')">Copy</button>
+
+<div class="card" id="t0">
+<h3>YouTube Script Writer</h3>
+<input id="topic" placeholder="Video topic likho... ex: iPhone 17 review">
+<button id="b0">Generate Script</button>
+<pre id="outScript">Yahan script aayega...</pre>
 </div>
-<div id="tab-hook" class="card hidden">
-<h2>Hook Generator</h2>
-<input id="h-topic" placeholder="Video topic">
-<button class="gen" onclick="genHook()">Generate with AI</button>
-<div id="h-out" class="output">Result here...</div>
-<button class="copy-btn" onclick="copyText('h-out')">Copy</button>
+
+<div class="card" id="t1" style="display:none">
+<h3>YouTube Thumbnail Ideas</h3>
+<input id="ttopic" placeholder="Video topic likho...">
+<button id="b1">Generate Ideas</button>
+<pre id="outThumb">Yahan ideas aayenge...</pre>
 </div>
-<div id="tab-tags" class="card hidden">
-<h2>Hashtag Generator</h2>
-<input id="t-topic" placeholder="Video topic">
-<button class="gen" onclick="genTags()">Generate with AI</button>
-<div id="t-out" class="output">Result here...</div>
-<button class="copy-btn" onclick="copyText('t-out')">Copy</button>
+
+<div class="card" id="t2" style="display:none">
+<h3>YouTube Hashtag Creator</h3>
+<input id="htopic" placeholder="Video topic likho...">
+<button id="b2">Generate Hashtags</button>
+<pre id="outHash">Yahan hashtags aayenge...</pre>
 </div>
-</div>
+
 <script>
-if(localStorage.getItem('gemini_key')){document.getElementById('apiKey').value=localStorage.getItem('gemini_key');}
-function saveKey(){const k=document.getElementById('apiKey').value.trim();if(k){localStorage.setItem('gemini_key',k);alert('Key saved!');}}
-function getKey(){const k=localStorage.getItem('gemini_key')||document.getElementById('apiKey').value.trim();if(!k){alert('Pehle Gemini API Key dalo upar');}return k;}
-function showTab(t,e){document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.remove('hidden');e.target.classList.add('active');}
-async function callGemini(prompt){
-const key=getKey();if(!key)return 'API Key missing';
-const url='https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key='+key;
-const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}]})});
-const data=await res.json();
-return data.candidates?.[0]?.content?.parts?.[0]?.text||'Error: '+JSON.stringify(data).slice(0,200);
+document.getElementById('tab0').onclick=function(){show(0)};
+document.getElementById('tab1').onclick=function(){show(1)};
+document.getElementById('tab2').onclick=function(){show(2)};
+function show(n){
+for(let i=0;i<3;i++){
+document.getElementById('t'+i).style.display=i===n?'block':'none';
+document.getElementById('tab'+i).className='tab'+(i===n?' active':'');
 }
-async function genScript(){
-const topic=document.getElementById('s-topic').value;const tone=document.getElementById('s-tone').value;
-document.getElementById('s-out').innerText='AI soch raha hai...';
-const r=await callGemini('Write a YouTube video script about: '+topic+'. Tone: '+tone+'. Include hook, intro, 3 main points, CTA, outro.');
-document.getElementById('s-out').innerText=r;
 }
-async function genHook(){
-const topic=document.getElementById('h-topic').value;
-document.getElementById('h-out').innerText='AI soch raha hai...';
-const r=await callGemini('Give me 5 very strong viral YouTube hooks for video topic: '+topic+'. Make them short and clickable.');
-document.getElementById('h-out').innerText=r;
-}
-async function genTags(){
-const topic=document.getElementById('t-topic').value;
-document.getElementById('t-out').innerText='AI soch raha hai...';
-const r=await callGemini('Generate 15 best YouTube hashtags and keywords for video topic: '+topic+'. Give hashtags and SEO keywords.');
-document.getElementById('t-out').innerText=r;
-}
-function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);alert('Copied!');}
+document.getElementById('b0').onclick=function(){
+let t=document.getElementById('topic').value.trim();
+if(!t) t='My Video';
+document.getElementById('outScript').innerText="HOOK (0-10s):\nStop! "+t+" ke baare me ye 3 baatein koi nahi batayega.\n\nINTRO:\nAssalam o Alaikum dosto, welcome to ScoreLab AI Tools.\n\nMAIN POINTS:\n1. "+t+" kya hai?\n2. Iske 3 faide\n3. Mera honest opinion\n\nCTA:\nVideo pasand aaye to Like Subscribe zaroor karna.";
+};
+document.getElementById('b1').onclick=function(){
+let t=document.getElementById('ttopic').value.trim()||'Video';
+document.getElementById('outThumb').innerText="1. "+t.toUpperCase()+" 😱 | Red Arrow + Shocked Face\n2. Before vs After - "+t+"\n3. 3 Secrets of "+t+"\n4. I Tried "+t+" - Shocking Result\n5. Big ? + "+t+" Photo (Yellow text)";
+};
+document.getElementById('b2').onclick=function(){
+let raw=document.getElementById('htopic').value.trim().toLowerCase()||'video';
+let t=raw.replace(/[^a-z0-9]/g,'');
+document.getElementById('outHash').innerText="#"+t+" #youtubepk #viralvideo #"+t+"2026 #trending #scorelab #foryou #pakistanyoutuber";
+};
+show(0);
 </script>
 </body>
 </html>
-  
