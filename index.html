@@ -12,7 +12,8 @@ button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:10px;wi
 input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;box-sizing:border-box;font-size:15px}
 pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line-height:1.6;border:1px solid #e2e8f0}
 .tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;text-align:center;padding:11px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}.active{background:#2563eb;color:#fff}
-.premium{border:2px solid #2563eb;background:#eff6ff}
+.premium{border:2px solid #f0a500;background:#fffbe6}
+.wa-btn{background:#25D366 !important}
 </style>
 </head>
 <body>
@@ -45,30 +46,30 @@ pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line
 
 <div class="card premium">
 <h3>🔥 Premium Kits - Level Up Karo</h3>
-<p>Free tools pasand aaye? Ab pro bano:</p>
-<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')">1. Get 500 Prompts - Grow Study Earn</button>
-<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')" style="background:#7c3aed">2. Get YouTube Automation Kit</button>
-<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0f766e">3. Get IELTS Band 7 Kit</button>
+<p><b>🌍 For International Users:</b></p>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')">Get 500 Prompts Pack</button>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')" style="background:#7c3aed">Get YouTube Automation Kit</button>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0f766e">Get IELTS Band 7 Kit</button>
+<hr style="margin:15px 0; border:1px solid #f0a500;">
+<p><b>🇵🇰 Pakistan Se Ho?</b><br>Neeche button par click karo, WhatsApp par sari details mil jayengi.</p>
+<button class="wa-btn" onclick="window.open('https://wa.me/923041139084?text=Assalam-o-Alaikum!%20Mujhe%20Premium%20Kits%20ke%20bare%20me%20info%20chahiye','_blank')">💬 WhatsApp Par Rabta Karo</button>
 </div>
 
 <script>
 function show(n){for(let i=0;i<3;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
 tab0.onclick=()=>show(0);tab1.onclick=()=>show(1);tab2.onclick=()=>show(2);
-
 b0.onclick=()=>{
 let t=topic.value.trim()||"My Video";
-o0.innerText=`VIRAL TITLE: ${t} - 5 Things No One Tells You! (2026)\n\n[0-15s HOOK]\nDosto ruk jao! Agar aap ${t} ke baare me ye video skip kar doge to aapko baad me pachtawa hoga. Kyunki number 4 wala point sabse important hai.\n\n[INTRO]\nAssalam-o-Alaikum! Welcome to ScoreLab AI Tools. Aaj hum baat karenge ${t} ki complete detail me.\n\n[MAIN CONTENT]\nPehli baat: ${t} me sabse bari ghalti jo 90% log karte hain, wo hai...\nDusri baat: Mene khud ${t} ko test kiya aur mujhe ye 3 faide mile:\n1. Time saving trick\n2. Money saving hack\n3. Pro result without effort\n\nTeesri baat: Agar aap beginner hain to ${t} ko is tarike se start karen...\n\n[ENGAGEMENT]\nComment me batao, kya aapne pehle kabhi ${t} try kiya?\n\n[CTA]\nVideo achi lagi to LIKE karo, apne dost ke sath SHARE karo, aur ScoreLab ko SUBSCRIBE karna mat bhoolna taake aisi videos milti rahen.`;
+o0.innerText=`VIRAL TITLE: ${t} - 5 Things No One Tells You! (2026)\n\n[0-15s HOOK]\nDosto ruk jao! Agar aap ${t} ke baare me ye video skip kar doge to aapko baad me pachtawa hoga.\n\n[INTRO]\nAssalam-o-Alaikum! Welcome to ScoreLab AI Tools. Aaj hum baat karenge ${t} ki complete detail me.\n\n[MAIN CONTENT]\nPehli baat: ${t} me sabse bari ghalti jo 90% log karte hain...\nDusri baat: Mene khud ${t} ko test kiya aur mujhe ye 3 faide mile.`;
 };
-
 b1.onclick=()=>{
 let t=ttopic.value.trim()||"Video"; let U=t.toUpperCase();
-o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n2. I Tried ${t}!\n3. ${t} Gone Wrong ❌\n4. 3 Secrets of ${t}\n5. STOP! Don't Do ${t}\n6. ${t} in 2026?!\n7. $0 vs $100 ${t}\n8. Why ${t} is Viral?\n9. Real Truth of ${t}\n10. ${t} Challenge Accepted!`;
+o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n2. I Tried ${t}!\n3. ${t} Gone Wrong ❌\n4. 3 Secrets of ${t}\n5. STOP! Don't Do ${t}`;
 };
-
 b2.onclick=()=>{
 let t=htopic.value.trim()||"my video";
 let tag=t.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim().replace(/ +/g,'');
-o2.innerText=`OPTIMIZED TITLE:\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n2. I Tried ${t} - Here's What Happened!\n\nDESCRIPTION:\nIn today's video, we talk about ${t} in complete detail.\nSubscribe to ScoreLab AI Tools for more.\n\nHASHTAGS:\n#${tag} #${tag}2026 #viralvideo #trendingpakistan #scorelabaitools`;
+o2.innerText=`OPTIMIZED TITLE:\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n\nDESCRIPTION:\nIn today's video, we talk about ${t} in complete detail.\n\nHASHTAGS:\n#${tag} #${tag}2026 #viralvideo`;
 };
 show(0);
 </script>
