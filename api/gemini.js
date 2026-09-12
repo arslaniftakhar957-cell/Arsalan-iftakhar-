@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     if (type === "thumbnail") finalPrompt = `Give 10 viral YouTube thumbnail text ideas for topic: ${prompt}. Short and catchy.`;
     if (type === "hashtag") finalPrompt = `Generate YouTube SEO for topic: ${prompt}. Give 1 optimized title, description, and 20 hashtags.`;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ contents: [{ parts: [{ text: finalPrompt }] }] })
