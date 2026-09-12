@@ -60,19 +60,39 @@ pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line
 
 <script>
 function show(n){for(let i=0;i<3;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
-tab0.onclick=()=>show(0);tab1.onclick=()=>show(1);tab2.onclick=()=>show(2);
-b0.onclick=()=>{
-let t=topic.value.trim()||"My Video";
-o0.innerText=`VIRAL TITLE: ${t} - 5 Things No One Tells You! (2026)\n\n[0-15s HOOK]\nDosto ruk jao! Agar aap ${t} ke baare me ye video skip kar doge to aapko baad me pachtawa hoga.\n\n[INTRO]\nAssalam-o-Alaikum! Welcome to ScoreLab AI Tools. Aaj hum baat karenge ${t} ki complete detail me.\n\n[MAIN CONTENT]\nPehli baat: ${t} me sabse bari ghalti jo 90% log karte hain...\nDusri baat: Mene khud ${t} ko test kiya aur mujhe ye 3 faide mile.`;
+document.getElementById('tab0').onclick=()=>show(0);document.getElementById('tab1').onclick=()=>show(1);document.getElementById('tab2').onclick=()=>show(2);
+
+async function callGemini(prompt, type, outputEl, btn){
+  const oldText = btn.innerText;
+  btn.innerText = "AI Soch Raha Hai...";
+  btn.disabled = true;
+  outputEl.innerText = "Please wait... Gemini AI likh raha hai...";
+  try{
+    const res = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, type })
+    });
+    const data = await res.json();
+    outputEl.innerText = data.result || "Error aaya, dobara try karo.";
+  }catch(e){
+    outputEl.innerText = "Error: " + e.message;
+  }
+  btn.innerText = oldText;
+  btn.disabled = false;
+}
+
+document.getElementById('b0').onclick = ()=> {
+  let t = document.getElementById('topic').value.trim() || "My Video";
+  callGemini(t, "script", document.getElementById('o0'), document.getElementById('b0'));
 };
-b1.onclick=()=>{
-let t=ttopic.value.trim()||"Video"; let U=t.toUpperCase();
-o1.innerText=`COPY-PASTE THUMBNAIL TEXT IDEAS for "${t}":\n\n1. ${U} 😱\n2. I Tried ${t}!\n3. ${t} Gone Wrong ❌\n4. 3 Secrets of ${t}\n5. STOP! Don't Do ${t}`;
+document.getElementById('b1').onclick = ()=> {
+  let t = document.getElementById('ttopic').value.trim() || "Video";
+  callGemini(t, "thumbnail", document.getElementById('o1'), document.getElementById('b1'));
 };
-b2.onclick=()=>{
-let t=htopic.value.trim()||"my video";
-let tag=t.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim().replace(/ +/g,'');
-o2.innerText=`OPTIMIZED TITLE:\n1. ${t} | Best ${t} Video in 2026 You Must Watch!\n\nDESCRIPTION:\nIn today's video, we talk about ${t} in complete detail.\n\nHASHTAGS:\n#${tag} #${tag}2026 #viralvideo`;
+document.getElementById('b2').onclick = ()=> {
+  let t = document.getElementById('htopic').value.trim() || "my video";
+  callGemini(t, "hashtag", document.getElementById('o2'), document.getElementById('b2'));
 };
 show(0);
 </script>
