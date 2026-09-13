@@ -14,14 +14,16 @@ button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:10px;wi
 .copy{background:#16a34a}
 input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;box-sizing:border-box;font-size:15px}
 pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line-height:1.6;border:1px solid #e2e8f0}
-.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;text-align:center;padding:11px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600}.active{background:#2563eb;color:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{flex:1;text-align:center;padding:11px;background:#e2e8f0;border-radius:10px;cursor:pointer;font-weight:600;font-size:14px}.active{background:#2563eb;color:#fff}
 .premium{border:2px solid #f0a500;background:#fffbe6}
 .wa-btn{background:#25D366 !important}
+img.gen{width:100%;border-radius:10px;margin-top:10px;border:1px solid #e2e8f0}
 </style>
 </head>
 <body>
 <h1>ScoreLab AI Tools</h1>
 <div class="tabs"><div class="tab active" id="tab0">Script Writer</div><div class="tab" id="tab1">Thumbnail</div><div class="tab" id="tab2">SEO Kit</div></div>
+<div class="tabs"><div class="tab" id="tab3">Image Generator</div><div class="tab" id="tab4">BG Remover</div><div class="tab" id="tab5">Search Tool</div><div class="tab" id="tab6">Study Helper</div></div>
 
 <div class="card" id="t0">
 <h3>YouTube Script Writer (Free Pro)</h3>
@@ -47,6 +49,39 @@ pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line
 <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o2').innerText);alert('Copied!')">Copy SEO</button>
 </div>
 
+<div class="card" id="t3" style="display:none">
+<h3>AI Image Generator (Free Pro)</h3>
+<input id="imgtopic" placeholder="Describe karo: futuristic city at sunset">
+<button id="b3">Generate Image</button>
+<pre id="o3">Prompt ready karke image banegi...</pre>
+<img id="imgout" class="gen" style="display:none" />
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o3').innerText);alert('Copied!')">Copy Prompt</button>
+</div>
+
+<div class="card" id="t4" style="display:none">
+<h3>AI Background Remover Guide</h3>
+<input id="bgtopic" placeholder="Masalan: product photo for daraz">
+<button id="b4">Get Remove Trick</button>
+<pre id="o4">Yahan best free trick aayega...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o4').innerText);alert('Copied!')">Copy</button>
+</div>
+
+<div class="card" id="t5" style="display:none">
+<h3>All-in-One Search Tool</h3>
+<input id="searchtopic" placeholder="Kya search karna hai?">
+<button id="b5">Smart Search Answer</button>
+<pre id="o5">Yahan smart answer aayega...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o5').innerText);alert('Copied!')">Copy</button>
+</div>
+
+<div class="card" id="t6" style="display:none">
+<h3>AI Study Helper</h3>
+<input id="studytopic" placeholder="Sawal likho: 9th class math chapter 2">
+<button id="b6">Get Easy Answer</button>
+<pre id="o6">Yahan easy answer aayega...</pre>
+<button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o6').innerText);alert('Copied!')">Copy Answer</button>
+</div>
+
 <div class="card premium">
 <h3>🔥 Premium Kits - Level Up Karo</h3>
 <p><b>🌍 For International Users:</b></p>
@@ -59,8 +94,8 @@ pre{background:#f8fafc;padding:14px;border-radius:10px;white-space:pre-wrap;line
 </div>
 
 <script>
-function show(n){for(let i=0;i<3;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
-document.getElementById('tab0').onclick=()=>show(0);document.getElementById('tab1').onclick=()=>show(1);document.getElementById('tab2').onclick=()=>show(2);
+function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).className='tab'+(i===n?' active':'')}}
+for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 
 async function callGemini(prompt, type, outputEl, btn){
   const oldText = btn.innerText;
@@ -75,6 +110,7 @@ async function callGemini(prompt, type, outputEl, btn){
     });
     const data = await res.json();
     outputEl.innerText = data.result || "Error aaya, dobara try karo.";
+    return data.result;
   }catch(e){
     outputEl.innerText = "Error: " + e.message;
   }
@@ -93,6 +129,31 @@ document.getElementById('b1').onclick = ()=> {
 document.getElementById('b2').onclick = ()=> {
   let t = document.getElementById('htopic').value.trim() || "my video";
   callGemini(t, "hashtag", document.getElementById('o2'), document.getElementById('b2'));
+};
+document.getElementById('b3').onclick = async ()=> {
+  let t = document.getElementById('imgtopic').value.trim() || "beautiful landscape";
+  let btn = document.getElementById('b3');
+  let out = document.getElementById('o3');
+  let prompt = await callGemini(t, "image", out, btn);
+  btn.innerText = "Generate Image"; btn.disabled = false;
+  if(prompt){
+    let img = document.getElementById('imgout');
+    img.style.display='block';
+    img.src = "https://image.pollinations.ai/prompt/"+encodeURIComponent(t)+"?nologo=true";
+    out.innerText = "Image neeche aa gayi! Prompt: "+t;
+  }
+};
+document.getElementById('b4').onclick = ()=> {
+  let t = document.getElementById('bgtopic').value.trim() || "my photo";
+  callGemini(t, "bgremove", document.getElementById('o4'), document.getElementById('b4'));
+};
+document.getElementById('b5').onclick = ()=> {
+  let t = document.getElementById('searchtopic').value.trim() || "today news";
+  callGemini(t, "search", document.getElementById('o5'), document.getElementById('b5'));
+};
+document.getElementById('b6').onclick = ()=> {
+  let t = document.getElementById('studytopic').value.trim() || "my question";
+  callGemini(t, "study", document.getElementById('o6'), document.getElementById('b6'));
 };
 show(0);
 </script>
