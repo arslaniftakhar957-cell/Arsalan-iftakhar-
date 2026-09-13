@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     if (type === "image") finalPrompt = `Create a highly detailed, photorealistic image prompt for: ${prompt}. Describe style, lighting, 2026 latest design, ultra HD.`;
     if (type === "bgremove") finalPrompt = `User wants to remove background for: ${prompt}. Give 3 free easy methods step-by-step in simple Urdu. Recommend free websites like remove.bg and phone apps.`;
     if (type === "search") finalPrompt = `Answer like a smart search engine in simple Urdu/Hindi mix for query: ${prompt}. Give direct, helpful, to-the-point answer.`;
-    if (type === "study") finalPrompt = `You are a helpful teacher. Detect the language of the student's question: ${prompt}. If question is in English, answer in simple easy English. If in Urdu, answer in simple Urdu. Give long answers with clear Headings and Points. Question: ${prompt}`;
+    if (type === "study") finalPrompt = `You are a helpful teacher. Detect language of: ${prompt}. If English answer in simple English, if Urdu answer in simple Urdu. Give answer with clear Headings and Points but DO NOT use any ** stars, ##, ### or markdown symbols. Give only plain clean simple text. Question: ${prompt}`;
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${API_KEY}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
