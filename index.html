@@ -182,7 +182,7 @@ e.preventDefault();
 document.getElementById('cat-view').style.display='none';
 document.getElementById('post-view').style.display='block';
 let filtered = blogPosts.filter(p=>p.category===cat);
-let html = filtered.map((p,i)=>`<p>${i+1}. <a href="blog/post.html?slug=${p.slug}">${p.title}</a></p>`).join('');
+let html = filtered.map((p,i)=>`<p>${i+1}. <a href="${p.link}">${p.title}</a></p>`).join('');
 if(!html) html = '<p>New post coming soon</p>';
 document.getElementById('post-list').innerHTML = html;
 }
