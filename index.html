@@ -160,14 +160,14 @@ show(0);
 <div class="card" style="border:2px solid #f59e0b; background:#fffbeb; text-align:center;">
 <h2 style="color:#92400e; margin-top:0;">📚 Latest Blog Post Categories</h2>
 <div id="blog-box">
-<div id="cat-view">
-<p><a href="#" onclick="showPosts('youtube',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#2563eb;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">1. YouTube Automation</a></p>
-<p><a href="#" onclick="showPosts('earning',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#7c3aed;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">2. Online Earning</a></p>
-<p><a href="#" onclick="showPosts('ielts',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#0d9488;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">3. IELTS Preparation</a></p>
-<p><a href="#" onclick="showPosts('prompts',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#db2777;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">4. AI Prompts</a></p>
-<p><a href="#" onclick="showPosts('freelancing',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#ea580c;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">5. Freelancing</a></p>
-<p><a href="#" onclick="showPosts('marketing',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#16a34a;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">6. Digital Marketing</a></p>
-<p><a href="#" onclick="showPosts('lifestyle',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#4f46e5;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">7. Lifestyle & Travel</a></p>
+<div id="cat-view" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+<a href="#" onclick="showPosts('youtube',event)" style="padding:12px 8px;background:#2563eb;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">1. YouTube Automation</a>
+<a href="#" onclick="showPosts('earning',event)" style="padding:12px 8px;background:#7c3aed;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">2. Online Earning</a>
+<a href="#" onclick="showPosts('ielts',event)" style="padding:12px 8px;background:#0d9488;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">3. IELTS Preparation</a>
+<a href="#" onclick="showPosts('prompts',event)" style="padding:12px 8px;background:#db2777;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">4. AI Prompts</a>
+<a href="#" onclick="showPosts('freelancing',event)" style="padding:12px 8px;background:#ea580c;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">5. Freelancing</a>
+<a href="#" onclick="showPosts('marketing',event)" style="padding:12px 8px;background:#16a34a;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;">6. Digital Marketing</a>
+<a href="#" onclick="showPosts('lifestyle',event)" style="padding:12px 8px;background:#4f46e5;color:#fff;border-radius:15px;text-decoration:none;font-weight:bold;font-size:14px;grid-column:span 2;">7. Lifestyle & Travel</a>
 </div>
 <div id="post-view" style="display:none; text-align:left;">
 <button onclick="backToCats()" style="background:#92400e;color:#fff;border:0;padding:8px 16px;border-radius:20px;margin-bottom:10px;">← Back</button>
