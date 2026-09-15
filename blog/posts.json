@@ -1,20 +1,5 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog</title></head>
-<body style="font-family:sans-serif;max-width:800px;margin:20px auto;padding:20px;">
-<a href="../index.html">← Home</a>
-<h1>📚 Latest Blog Post Categories</h1>
-<div id="cats" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
-<script>
-const allCats = ["YouTube Automation","Online Earning","IELTS Preparation","AI Prompts","Freelancing","Digital Marketing","Lifestyle & Travel"];
-fetch('posts.json').then(r=>r.json()).then(posts=>{
-  let box = document.getElementById('cats');
-  allCats.forEach((c,i)=>{
-    let has = posts.filter(p=>p.category===c);
-    let link = has.length>0? 'cat-'+i+'.html' : 'coming-soon.html';
-    // پہلی کیٹگری کے لیے ہم خاص پیج بنائیں گے
-    if(c==="YouTube Automation") link = 'cat-youtube.html';
-    else if(has.length>0) link = has[0].file;
-    box.innerHTML += `<a href="${link}" style="background:#2563eb;color:#fff;padding:20px;border-radius:12px;text-align:center;text-decoration:none;font-weight:bold;">${i+1}. ${c}</a>`;
-  });
-});
-</script>
-</body></html>
+[
+  {"title": "Post 1", "category": "YouTube Automation", "file": "post-1.html"},
+  {"title": "Post 2", "category": "YouTube Automation", "file": "post-2.html"},
+  {"title": "Post 3", "category": "YouTube Automation", "file": "post-3.html"}
+]
