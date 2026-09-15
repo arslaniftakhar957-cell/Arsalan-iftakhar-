@@ -157,22 +157,45 @@ document.getElementById('b6').onclick = ()=> {
 };
 show(0);
 </script>
-<div style="max-width:800px; margin:30px auto; padding:20px; text-align:center;">
-<hr>
-<h2>Blog Categories</h2>
-<p>
-<a href="blog/youtube-automation.html" style="display:inline-block; margin:6px; padding:10px 16px; background:#2563eb; color:#fff; border-radius:20px; text-decoration:none;">YouTube Automation</a>
-<a href="blog/online-earning.html" style="display:inline-block; margin:6px; padding:10px 16px; background:#7c3aed; color:#fff; border-radius:20px; text-decoration:none;">Online Earning</a>
-<a href="blog/ielts-preparation.html" style="display:inline-block; margin:6px; padding:10px 16px; background:#0d9488; color:#fff; border-radius:20px; text-decoration:none;">IELTS Preparation</a>
-<a href="blog/ai-prompts.html" style="display:inline-block; margin:6px; padding:10px 16px; background:#db2777; color:#fff; border-radius:20px; text-decoration:none;">AI Prompts</a>
-</p>
-<hr>
-<h2>Latest Blog Posts</h2>
-<div id="blog-list">Loading posts...</div>
+<div class="card" style="border:2px solid #f59e0b; background:#fffbeb; text-align:center;">
+<h2 style="color:#92400e; margin-top:0;">📚 Latest Blog Post Categories</h2>
+<div id="blog-box">
+<div id="cat-view">
+<p><a href="#" onclick="showPosts('youtube',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#2563eb;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">1. YouTube Automation</a></p>
+<p><a href="#" onclick="showPosts('earning',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#7c3aed;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">2. Online Earning</a></p>
+<p><a href="#" onclick="showPosts('ielts',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#0d9488;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">3. IELTS Preparation</a></p>
+<p><a href="#" onclick="showPosts('prompts',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#db2777;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">4. AI Prompts</a></p>
+<p><a href="#" onclick="showPosts('freelancing',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#ea580c;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">5. Freelancing</a></p>
+<p><a href="#" onclick="showPosts('marketing',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#16a34a;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">6. Digital Marketing</a></p>
+<p><a href="#" onclick="showPosts('lifestyle',event)" style="display:inline-block;margin:6px;padding:12px 20px;background:#4f46e5;color:#fff;border-radius:25px;text-decoration:none;font-weight:bold;">7. Lifestyle & Travel</a></p>
 </div>
-<script src="blog/posts.js"></script>
+<div id="post-view" style="display:none; text-align:left;">
+<button onclick="backToCats()" style="background:#92400e;color:#fff;border:0;padding:8px 16px;border-radius:20px;margin-bottom:10px;">← Back</button>
+<div id="post-list"></div>
+</div>
+</div>
+</div>
 <script>
-document.getElementById('blog-list').innerHTML = blogPosts.map(p => `<p><a href="${p.link}">${p.title}</a></p>`).join('');
+const blogData = {
+youtube: [{t:"How I Got My First 1000 Subscribers in 2026", l:"#"}, {t:"Why Your YouTube Titles Are Killing Your Views", l:"#"}],
+earning: [{t:"New post coming soon", l:"#"}],
+ielts: [{t:"New post coming soon", l:"#"}],
+prompts: [{t:"New post coming soon", l:"#"}],
+freelancing: [{t:"New post coming soon", l:"#"}],
+marketing: [{t:"10 Viral TikTok Hashtag Strategies", l:"#"}],
+lifestyle: [{t:"New post coming soon", l:"#"}]
+};
+function showPosts(cat, e){
+e.preventDefault();
+document.getElementById('cat-view').style.display='none';
+document.getElementById('post-view').style.display='block';
+let html = blogData[cat].map((p,i)=>`<p>${i+1}. <a href="${p.l}">${p.t}</a></p>`).join('');
+document.getElementById('post-list').innerHTML = html;
+}
+function backToCats(){
+document.getElementById('post-view').style.display='none';
+document.getElementById('cat-view').style.display='block';
+}
 </script>
   <footer style="text-align:center; padding:20px; margin-top:30px; border-top:1px solid #ccc;">
 <a href="about.html">About Us</a> |
