@@ -19,10 +19,10 @@ body{font-family:system-ui,sans-serif;background:#f1f5f9;margin:0;color:#0f172a}
 .site-nav a.active{background:#2563eb;color:#fff}
 .wrap{padding:14px;max-width:1100px;margin:0 auto}
 .sec-title{text-align:center;font-size:26px;color:#1e3a8a;margin:16px 0}
-.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
 .tool-card{background:#fff;border-radius:20px;padding:20px 10px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);cursor:pointer;border:3px solid transparent}
 .tool-card.active{border-color:#2563eb}
-.tool-icon{width:56px;height:56px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff}
+.tool-icon{width:56px;height:56px;margin:0 auto 10px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px}
 .tool-card b{display:block;font-size:16px}
 .tool-card small{color:#64748b;font-size:13px}
 .card{background:#fff;padding:18px;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin:14px 0}
@@ -32,13 +32,15 @@ button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:12px;wi
 input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px;font-size:15px}
 pre{background:#f8fafc;padding:14px;border-radius:12px;white-space:pre-wrap;line-height:1.6;border:1px solid #e2e8f0}
 img.gen{width:100%;border-radius:12px;margin-top:10px}
-.premium{background:#ede9fe;border-radius:20px;padding:20px;margin:20px 0;display:block !important}
-.premium h3{color:#1e3a8a;margin-top:0;font-size:20px}
-.wa-btn{background:#22c55e !important}
-.blog-sec{background:#fffbeb;border:2px solid #f59e0b;border-radius:20px;padding:18px;margin:20px 0;display:block !important}
-.blog-sec h2{color:#92400e;text-align:center;margin-top:0}
-.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.cat-grid a{padding:16px 8px;border-radius:16px;text-decoration:none;font-weight:700;font-size:14px;text-align:center;display:block;color:#fff}
+.premium{background:#ede9fe;border-radius:24px;padding:22px 16px;margin:20px 0}
+.premium h3{color:#1e2a78;font-size:22px;margin:0 0 14px}
+.premium .prow{display:flex;gap:8px;flex-wrap:wrap}
+.premium .prow button{flex:1;min-width:140px;font-size:13px;padding:12px 8px}
+.wa-btn{background:#22c55e !important;border-radius:14px !important;font-size:17px !important;padding:15px !important;margin-top:14px !important}
+.blog-sec{background:#fff;border-radius:20px;padding:18px;margin:20px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.blog-sec h2{color:#1e2a78;text-align:center;font-size:22px;margin:0 0 16px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cat-grid a{border-radius:18px;padding:20px 10px;text-align:center;font-weight:700;font-size:14px;line-height:1.4;display:block;text-decoration:none}
 footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
@@ -49,6 +51,7 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <a href="index.html" class="logo"><div class="logo-icon">🛡️</div><div class="logo-text"><b>ScoreLab</b><span>ACADEMY</span></div></a>
 <nav class="site-nav"><a href="index.html" class="active">Home</a><a href="about.html">About</a><a href="blog/">Blog</a><a href="contact.html">Contact</a></nav>
 </div></header>
+
 <div class="wrap">
 <div class="sec-title">✨ AI Tools</div>
 <div class="tools-grid">
@@ -71,30 +74,30 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 
 <div class="premium">
 <h3>🚀 Premium Kits - Level Up Karo</h3>
-<p><b>🌍 For International Users:</b></p>
-<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')">📄 Get 500 Prompts Pack</button>
+<div class="prow">
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')" style="background:#2563eb">📄 Get 500 Prompts Pack</button>
 <button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')" style="background:#7c3aed">▶️ Get YouTube Automation Kit</button>
-<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0f766e">🏆 Get IELTS Band 7 Kit</button>
-<hr>
-<p><b>🇵🇰 Pakistan Se Ho?</b><br>Neeche button par click karo, WhatsApp par sari details mil jayengi.</p>
+<button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0d9488">🏆 Get IELTS Band 7 Kit</button>
+</div>
+<p style="margin:16px 0 0"><b>🇵🇰 Pakistan Se Ho?</b><br><span style="color:#475569">Neeche button par click karo, WhatsApp par sari details mil jayengi.</span></p>
 <button class="wa-btn" onclick="window.open('https://wa.me/923041139084?text=Assalam-o-Alaikum!%20Mujhe%20Premium%20Kits%20ke%20bare%20me%20info%20chahiye','_blank')">💬 WhatsApp Par Rabta Karo</button>
 </div>
 
 <div class="blog-sec">
 <h2>📚 Latest Blog Post Categories</h2>
 <div id="cat-view" class="cat-grid">
-<a href="#" onclick="showPosts('YouTube Automation',event)" style="background:#2563eb">1. YouTube Automation</a>
-<a href="#" onclick="showPosts('Online Earning',event)" style="background:#7c3aed">2. Online Earning</a>
-<a href="#" onclick="showPosts('IELTS Preparation',event)" style="background:#0d9488">3. IELTS Preparation</a>
-<a href="#" onclick="showPosts('AI Prompts',event)" style="background:#db2777">4. AI Prompts</a>
-<a href="#" onclick="showPosts('Freelancing',event)" style="background:#ea580c">5. Freelancing</a>
-<a href="#" onclick="showPosts('Digital Marketing',event)" style="background:#16a34a">6. Digital Marketing</a>
-<a href="#" onclick="showPosts('Lifestyle & Travel',event)" style="background:#4f46e5;grid-column:span 2">7. Lifestyle & Travel</a>
+<a href="#" onclick="showPosts('YouTube Automation',event)" style="background:#fef3c7;color:#92400e">▶️<br>YouTube Automation</a>
+<a href="#" onclick="showPosts('Online Earning',event)" style="background:#dcfce7;color:#166534">💲<br>Online Earning</a>
+<a href="#" onclick="showPosts('IELTS Preparation',event)" style="background:#dbeafe;color:#1e40af">📄<br>IELTS Preparation</a>
+<a href="#" onclick="showPosts('AI Prompts',event)" style="background:#f3e8ff;color:#7c3aed">✨<br>AI Prompts</a>
+<a href="#" onclick="showPosts('Freelancing',event)" style="background:#fef3c7;color:#9a3412">💼<br>Freelancing</a>
+<a href="#" onclick="showPosts('Digital Marketing',event)" style="background:#fce7f3;color:#be185d">📢<br>Digital Marketing</a>
+<a href="#" onclick="showPosts('Lifestyle & Travel',event)" style="background:#ccfbf1;color:#0f766e;grid-column:span 2">✈️<br>Lifestyle & Travel</a>
 </div>
-<div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#92400e;padding:8px 18px;border-radius:20px">← Back</button><div id="post-list"></div></div>
+<div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px">← Back</button><div id="post-list"></div></div>
+</div>
 </div>
 
-</div>
 <footer class="site-footer">
 <div style="font-size:20px;font-weight:800">ScoreLab Academy</div>
 <p style="color:#bfdbfe">Empowering learners with AI tools & premium kits</p>
@@ -104,7 +107,7 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="copyright">© 2026 ScoreLab Academy. All rights reserved.</div>
 
 <script>
-function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}window.scrollTo({top:document.querySelector('.tools-grid').offsetTop-80,behavior:'smooth'})}
+function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 async function callGemini(prompt,type,outputEl,btn){const oldText=btn.innerText;btn.innerText="AI Soch Raha Hai...";btn.disabled=true;outputEl.innerText="Please wait... Gemini AI likh raha hai...";try{const res=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,type})});const data=await res.json();outputEl.innerText=data.result||"Error aaya, dobara try karo.";return data.result;}catch(e){outputEl.innerText="Error: "+e.message;}btn.innerText=oldText;btn.disabled=false;}
 document.getElementById('b0').onclick=()=>{let t=document.getElementById('topic').value.trim()||"My Video";callGemini(t,"script",document.getElementById('o0'),document.getElementById('b0'));};
