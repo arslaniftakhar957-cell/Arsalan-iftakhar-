@@ -24,11 +24,11 @@ img.gen{width:100%;border-radius:10px;margin-top:10px;border:1px solid #e2e8f0}
    <header style="position:sticky;top:0;z-index:100;background:linear-gradient(90deg,#0f172a,#1e40af);padding:12px 16px;box-shadow:0 4px 12px rgba(0,0,0,0.25);">
 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;max-width:1100px;margin:0 auto;">
 <a href="index.html" style="color:#fff;text-decoration:none;font-size:20px;font-weight:900;">🚀 ScoreLab <span style="color:#38bdf8;">Academy</span></a>
-<nav style="display:flex;gap:16px;flex-wrap:wrap;font-size:15px;font-weight:600;">
-<a href="index.html" style="color:#e2e8f0;text-decoration:none;">Home</a>
-<a href="about.html" style="color:#e2e8f0;text-decoration:none;">About</a>
-<a href="blog/" style="color:#e2e8f0;text-decoration:none;">Blog</a>
-<a href="contact.html" style="background:#38bdf8;color:#0f172a;padding:6px 14px;border-radius:20px;text-decoration:none;">Contact</a>
+<nav style="display:flex;gap:16px;flex-wrap:wrap;font-size:15px;font-weight:600;align-items:center;">
+<a href="index.html" style="background:#38bdf8;color:#0f172a;padding:6px 14px;border-radius:20px;text-decoration:none;">Home</a>
+<a href="about.html" style="color:#e2e8f0;text-decoration:none;padding:6px 14px;">About</a>
+<a href="blog/" style="color:#e2e8f0;text-decoration:none;padding:6px 14px;">Blog</a>
+<a href="contact.html" style="color:#e2e8f0;text-decoration:none;padding:6px 14px;">Contact</a>
 </nav>
 </div>
 </header>    
@@ -148,9 +148,10 @@ document.getElementById('b6').onclick = ()=>{let t=document.getElementById('stud
 </div>
 </div>
 
-<script src="blog/posts.js"></script>
 <script>
-function showPosts(cat, e){e.preventDefault();document.getElementById('cat-view').style.display='none';document.getElementById('post-view').style.display='block';let filtered=blogPosts.filter(p=>p.category===cat);let html=filtered.map((p,i)=>`<p>${i+1}. <a href="${p.link}">${p.title}</a></p>`).join('');if(!html)html='<p>New post coming soon</p>';document.getElementById('post-list').innerHTML=html;}
+let blogPosts = [];
+fetch('blog/posts.json').then(r=>r.json()).then(d=>{blogPosts=d;});
+function showPosts(cat, e){e.preventDefault();document.getElementById('cat-view').style.display='none';document.getElementById('post-view').style.display='block';let filtered=blogPosts.filter(p=>p.category===cat);let html=filtered.map((p,i)=>`<p>${i+1}. <a href="blog/${p.file}">${p.title}</a></p>`).join('');if(!html)html='<p>New post coming soon</p>';document.getElementById('post-list').innerHTML='<h3>'+cat+'</h3>'+html;}
 function backToCats(){document.getElementById('post-view').style.display='none';document.getElementById('cat-view').style.display='grid';}
 </script>
 
