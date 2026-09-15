@@ -175,18 +175,20 @@ show(0);
 </div>
 </div>
 </div>
+<script src="blog/posts.js"></script>
 <script>
-
 function showPosts(cat, e){
 e.preventDefault();
 document.getElementById('cat-view').style.display='none';
 document.getElementById('post-view').style.display='block';
-let html = blogData[cat].map((p,i)=>`<p>${i+1}. <a href="${p.l}">${p.t}</a></p>`).join('');
+let filtered = blogPosts.filter(p=>p.category===cat);
+let html = filtered.map((p,i)=>`<p>${i+1}. <a href="blog/post.html?slug=${p.slug}">${p.title}</a></p>`).join('');
+if(!html) html = '<p>New post coming soon</p>';
 document.getElementById('post-list').innerHTML = html;
 }
 function backToCats(){
 document.getElementById('post-view').style.display='none';
-document.getElementById('cat-view').style.display='block';
+document.getElementById('cat-view').style.display='flex';
 }
 </script>
   <footer style="text-align:center; padding:20px; margin-top:30px; border-top:1px solid #ccc;">
