@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ScoreLab Academy</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f1f5f9;padding-top:68px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,sans-serif;background:#f1f5f9;padding-top:68px;color:#0f172a}
 .site-header{background:#fff;padding:10px 12px;box-shadow:0 2px 10px rgba(0,0,0,.08);position:fixed;top:0;left:0;right:0;z-index:998}
-.header-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;gap:8px;align-items:center;text-decoration:none}.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:26px}.logo-text b{font-size:20px;color:#1e3a8a;display:block}.logo-text span{font-size:10px;letter-spacing:3px;color:#64748b}
-.site-nav a{text-decoration:none;font-size:14px;font-weight:600;color:#475569;padding:7px 12px;border-radius:20px}.site-nav a.active{background:#2563eb;color:#fff}
-.wrap{max-width:1100px;margin:0 auto;padding:14px}.sec-title{text-align:center;font-size:26px;color:#1e3a8a;margin:16px 0}
-.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tool-card{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.06);border:2px solid transparent;cursor:pointer}.tool-card.active{border-color:#2563eb}
-.card{background:#fff;padding:18px;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin:14px 0}button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:12px;width:100%;font-size:16px;margin-top:8px;font-weight:700}input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px}pre{background:#f8fafc;padding:14px;border-radius:12px;white-space:pre-wrap;border:1px solid #e2e8f0}
-.premium{background:#ede9fe;border-radius:24px;padding:22px 16px;margin:20px 0}.blog-sec{background:#fff;border-radius:20px;padding:18px;margin:20px 0}.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.cat-grid a{border-radius:18px;padding:20px 10px;text-align:center;font-weight:700;text-decoration:none;display:block}
-footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;text-align:center;margin-top:24px}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.logo-text b{font-size:20px;color:#1e3a8a;display:block;line-height:1}
+.logo-text span{font-size:10px;letter-spacing:3px;color:#64748b}
+.site-nav a{text-decoration:none;font-size:14px;font-weight:600;color:#475569;padding:7px 12px;border-radius:20px}
+.site-nav a.active{background:#2563eb;color:#fff}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+.sec-title{text-align:center;font-size:26px;color:#1e3a8a;margin:16px 0}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tool-card{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.06);border:2px solid transparent;cursor:pointer}
+.tool-card.active{border-color:#2563eb}
+.card{background:#fff;padding:18px;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin:14px 0}
+.card h3{margin-top:0;color:#1e3a8a}
+button{background:#2563eb;color:#fff;border:0;padding:13px;border-radius:12px;width:100%;font-size:16px;margin-top:8px;font-weight:700;cursor:pointer}
+input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:12px}
+pre{background:#f8fafc;padding:14px;border-radius:12px;white-space:pre-wrap;border:1px solid #e2e8f0}
+.premium{background:#ede9fe;border-radius:24px;padding:22px 16px;margin:20px 0}
+.blog-sec{background:#fff;border-radius:20px;padding:18px;margin:20px 0;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.blog-sec h2{color:#1e2a78;text-align:center;font-size:22px;margin:0 0 16px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cat-grid a{border-radius:18px;padding:20px 10px;text-align:center;font-weight:700;font-size:14px;display:block;text-decoration:none}
+footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 
-/* FRONT WALK - NOT SLIDE */
+/* === FINAL FIX - BOY STANDING KNOCK === */
 #welcome-gate{position:fixed;inset:0;z-index:9999;background:#ffffff;display:flex;justify-content:center;align-items:center;transition:0.8s}
-#welcome-gate.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
+#welcome-gate.hide{transform:scale(1.1);opacity:0;pointer-events:none}
 #scene{position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center}
-#boy{width:220px;position:absolute;bottom:38%;left:50%;transform:translateX(-50%) scale(0.3);opacity:0;animation:frontWalk 2.6s ease-out forwards}
-@keyframes frontWalk{
-  0%{transform:translateX(-50%) scale(0.3) translateY(60px);opacity:0}
-  15%{transform:translateX(-50%) scale(0.4) translateY(0);opacity:1}
-  30%{transform:translateX(-50%) scale(0.55) translateY(-8px)}
-  45%{transform:translateX(-50%) scale(0.7) translateY(0)}
-  60%{transform:translateX(-50%) scale(0.85) translateY(-8px)}
-  75%{transform:translateX(-50%) scale(1.0) translateY(0)}
-  100%{transform:translateX(-50%) scale(1.15) translateY(0)}
-}
-@keyframes knockFront{0%,100%{transform:translateX(-50%) scale(1.15)}25%{transform:translateX(-50%) scale(1.15) translateX(6px) rotate(2deg)}50%{transform:translateX(-50%) scale(1.15) translateX(-6px)}}
-#door-wrap{position:absolute;bottom:40%;left:50%;transform:translateX(-50%);width:170px;height:250px;display:flex;z-index:2;opacity:0;transition:0.3s}
-#door-wrap.show{opacity:1}
-.door-half{width:50%;height:100%;background:#8B5A2B;border:3px solid #5a3a1b;transition:0.8s}
-.door-half.left{transform-origin:left;border-radius:12px 0 0 12px}
-.door-half.right{transform-origin:right;border-radius:0 12px 12px 0}
-.open-left{transform:perspective(700px) rotateY(-115deg)}.open-right{transform:perspective(700px) rotateY(115deg)}
-#gate-card{display:none;position:absolute;bottom:5%;left:50%;transform:translateX(-50%) translateY(150px);background:#fff;border-radius:22px;padding:24px;width:360px;max-width:92vw;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:popupUp 0.6s ease-out forwards;z-index:10}
-@keyframes popupUp{0%{transform:translateX(-50%) translateY(150px);opacity:0}100%{transform:translateX(-50%) translateY(0);opacity:1}}
-.gate-btn{width:100%;padding:14px;margin:7px 0;border-radius:14px;font-weight:800;border:none}
+#boy{width:260px;position:absolute;bottom:42%;left:50%;transform:translateX(-50%);z-index:5}
+#boy.knock-anim{animation:knockOnce 0.4s ease 2}
+@keyframes knockOnce{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateX(10px)}}
+#door-wrap{position:absolute;bottom:45%;left:50%;transform:translateX(-50%);width:180px;height:260px;display:flex;z-index:2}
+.door-half{width:50%;height:100%;background:linear-gradient(#a67c52,#8B5A2B);border:3px solid #5a3a1b;transition:0.8s cubic-bezier(.77,0,.175,1)}
+.door-half.left{transform-origin:left;border-radius:10px 0 0 10px}
+.door-half.right{transform-origin:right;border-radius:0 10px 10px 0}
+.open-left{transform:perspective(700px) rotateY(-110deg)}
+.open-right{transform:perspective(700px) rotateY(110deg)}
+#gate-card{display:none;position:absolute;bottom:8%;left:50%;transform:translateX(-50%);background:#fff;border-radius:22px;padding:24px;width:360px;max-width:92vw;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);z-index:10;animation:popupCenter 0.6s ease}
+@keyframes popupCenter{0%{transform:translateX(-50%) scale(0.3);opacity:0}100%{transform:translateX(-50%) scale(1);opacity:1}}
+.gate-btn{width:100%;padding:14px;margin:7px 0;border-radius:14px;font-weight:800;border:none;cursor:pointer}
 #backToHome{position:fixed;bottom:20px;right:20px;z-index:9998;background:#0f2a6b;color:#fff;padding:12px 20px;border-radius:30px;border:none;font-weight:bold;display:none}
 </style>
 </head>
@@ -46,8 +55,8 @@ footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;text-align:ce
 
 <div id="welcome-gate">
   <div id="scene">
-    <img id="boy" src="boy.png">
-    <div id="door-wrap" id="doorWrap"><div class="door-half left" id="doorLeft"></div><div class="door-half right" id="doorRight"></div></div>
+    <div id="door-wrap"><div class="door-half left" id="doorLeft"></div><div class="door-half right" id="doorRight"></div></div>
+    <img id="boy" src="boy-knock.png" onerror="this.src='boy.png'">
     <div id="gate-card">
       <h2 style="margin:0;color:#1e3a8a">ScoreLab Academy</h2>
       <p style="color:#64748b;font-size:13px;margin:6px 0 14px">Welcome! Choose Your Path</p>
@@ -57,50 +66,64 @@ footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;text-align:ce
     </div>
   </div>
 </div>
-<button id="backToHome" onclick="backToGate()">⬅️ Back to Menu</button>
+<button id="backToHome" onclick="location.reload()">⬅️ Back to Menu</button>
 
 <header class="site-header"><div class="header-inner"><a href="index.html" class="logo"><div class="logo-icon">🛡️</div><div class="logo-text"><b>ScoreLab</b><span>ACADEMY</span></div></a><nav class="site-nav"><a href="index.html" class="active">Home</a><a href="about.html">About</a><a href="blog/">Blog</a><a href="contact.html">Contact</a></nav></div></header>
 
 <div class="wrap">
-  <div id="ai-tools-section"><div class="sec-title">✨ AI Tools</div><div class="tools-grid"><div class="tool-card active" id="tab0">📝<br><b>Script Writer</b></div><div class="tool-card" id="tab1">🖼️<br><b>Thumbnail</b></div><div class="tool-card" id="tab2">🔍<br><b>SEO Kit</b></div><div class="tool-card" id="tab3">✨<br><b>Image Generator</b></div><div class="tool-card" id="tab4">✂️<br><b>BG Remover</b></div><div class="tool-card" id="tab5">🔎<br><b>Search Tool</b></div><div class="tool-card" id="tab6" style="grid-column:span 2">🎓<br><b>Study Helper</b></div></div><div class="card" id="t0"><h3>YouTube Script Writer</h3><input id="topic" placeholder="Topic likho"><button id="b0">Generate</button><pre id="o0">...</pre></div><div class="card" id="t1" style="display:none"><h3>Thumbnail</h3><input id="ttopic"><button id="b1">Generate</button><pre id="o1">...</pre></div><div class="card" id="t2" style="display:none"><h3>SEO Kit</h3><input id="htopic"><button id="b2">Generate</button><pre id="o2">...</pre></div><div class="card" id="t3" style="display:none"><h3>Image Generator</h3><input id="imgtopic"><button id="b3">Generate</button><pre id="o3">...</pre><img id="imgout" class="gen" style="display:none"></div><div class="card" id="t4" style="display:none"><h3>BG Remover</h3><input id="bgtopic"><button id="b4">Get Trick</button><pre id="o4">...</pre></div><div class="card" id="t5" style="display:none"><h3>Search Tool</h3><input id="searchtopic"><button id="b5">Search</button><pre id="o5">...</pre></div><div class="card" id="t6" style="display:none"><h3>Study Helper</h3><input id="studytopic"><button id="b6">Answer</button><pre id="o6">...</pre></div></div>
-  <div id="premium-kits-section" style="display:none"><div class="premium"><h3>Premium Kits</h3><div class="prow"><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')" style="background:#2563eb">📄 500 Prompts</button><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')" style="background:#7c3aed">▶️ YouTube Kit</button><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')" style="background:#0d9488">🏆 IELTS Kit</button></div><button class="wa-btn" style="background:#22c55e;color:#fff;padding:15px;border-radius:14px;width:100%;margin-top:14px;border:none" onclick="window.open('https://wa.me/923041139084','_blank')">💬 WhatsApp</button></div></div>
-  <div id="blogs-section" style="display:none"><div class="blog-sec"><h2>📚 Latest Blog Post Categories</h2><div id="cat-view" class="cat-grid"><a href="#" onclick="showPosts('YouTube Automation',event)" style="background:#fef3c7;color:#92400e">▶️ YouTube Automation</a><a href="#" onclick="showPosts('Online Earning',event)" style="background:#dcfce7;color:#166534">💲 Online Earning</a><a href="#" onclick="showPosts('IELTS Preparation',event)" style="background:#dbeafe;color:#1e40af">📄 IELTS Preparation</a><a href="#" onclick="showPosts('AI Prompts',event)" style="background:#f3e8ff;color:#7c3aed">✨ AI Prompts</a><a href="#" onclick="showPosts('Freelancing',event)" style="background:#fef3c7;color:#9a3412">💼 Freelancing</a><a href="#" onclick="showPosts('Digital Marketing',event)" style="background:#fce7f3;color:#be185d">📢 Digital Marketing</a><a href="#" onclick="showPosts('Lifestyle & Travel',event)" style="background:#ccfbf1;color:#0f766e;grid-column:span 2">✈️ Lifestyle & Travel</a></div><div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px;color:#fff;border:none">← Back to Categories</button><div id="post-list"></div></div></div></div>
+  <div id="ai-tools-section"><div class="sec-title">✨ AI Tools</div><div class="tools-grid"><div class="tool-card active" id="tab0">📝<br><b>Script Writer</b></div><div class="tool-card" id="tab1">🖼️<br><b>Thumbnail</b></div><div class="tool-card" id="tab2">🔍<br><b>SEO Kit</b></div><div class="tool-card" id="tab3">✨<br><b>Image Generator</b></div><div class="tool-card" id="tab4">✂️<br><b>BG Remover</b></div><div class="tool-card" id="tab5">🔎<br><b>Search Tool</b></div><div class="tool-card" id="tab6" style="grid-column:span 2">🎓<br><b>Study Helper</b></div></div><div class="card" id="t0"><h3>YouTube Script Writer</h3><input id="topic"><button id="b0">Generate</button><pre id="o0">...</pre></div><div class="card" id="t1" style="display:none"><h3>Thumbnail</h3><input id="ttopic"><button id="b1">Generate</button><pre id="o1">...</pre></div><div class="card" id="t2" style="display:none"><h3>SEO Kit</h3><input id="htopic"><button id="b2">Generate</button><pre id="o2">...</pre></div><div class="card" id="t3" style="display:none"><h3>Image Generator</h3><input id="imgtopic"><button id="b3">Generate</button><pre id="o3">...</pre></div><div class="card" id="t4" style="display:none"><h3>BG Remover</h3><input id="bgtopic"><button id="b4">Get Trick</button><pre id="o4">...</pre></div><div class="card" id="t5" style="display:none"><h3>Search Tool</h3><input id="searchtopic"><button id="b5">Search</button><pre id="o5">...</pre></div><div class="card" id="t6" style="display:none"><h3>Study Helper</h3><input id="studytopic"><button id="b6">Answer</button><pre id="o6">...</pre></div></div>
+  <div id="premium-kits-section" style="display:none"><div class="premium"><h3>Premium Kits</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/500-prompts-grow-study-earn','_blank')">📄 500 Prompts</button><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/youtube-automation-kit','_blank')">▶️ YouTube Kit</button><button onclick="window.open('https://arslaniftakhar.gumroad.com/l/ielts-band7-kit','_blank')">🏆 IELTS Kit</button></div></div></div>
+  <div id="blogs-section" style="display:none"><div class="blog-sec"><h2>📚 Latest Blog Post Categories</h2>
+    <div id="cat-view" class="cat-grid">
+      <a href="#" onclick="openCat('YouTube Automation',event)" style="background:#fef3c7">▶️ YouTube Automation</a>
+      <a href="#" onclick="openCat('Online Earning',event)" style="background:#dcfce7">💲 Online Earning</a>
+      <a href="#" onclick="openCat('IELTS Preparation',event)" style="background:#dbeafe">📄 IELTS</a>
+      <a href="#" onclick="openCat('AI Prompts',event)" style="background:#f3e8ff">✨ AI Prompts</a>
+      <a href="#" onclick="openCat('Freelancing',event)" style="background:#fef3c7">💼 Freelancing</a>
+      <a href="#" onclick="openCat('Digital Marketing',event)" style="background:#fce7f3">📢 Marketing</a>
+      <a href="#" onclick="openCat('Lifestyle & Travel',event)" style="background:#ccfbf1;grid-column:span 2">✈️ Lifestyle</a>
+    </div>
+    <div id="list-view" style="display:none">
+      <button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px">← Back to Categories</button>
+      <h3 id="catTitle"></h3>
+      <div id="postList"></div>
+    </div>
+    <div id="single-view" style="display:none">
+      <button onclick="backToList()" style="width:auto;background:#555;padding:8px 18px;border-radius:20px">← Back to YouTube Posts</button>
+      <div id="singleContent"></div>
+    </div>
+  </div></div>
 </div>
+
 <footer class="site-footer">© 2026 ScoreLab Academy</footer>
 
 <script>
-const aiSec=document.getElementById('ai-tools-section'),kitsSec=document.getElementById('premium-kits-section'),blogsSec=document.getElementById('blogs-section'),gate=document.getElementById('welcome-gate'),card=document.getElementById('gate-card'),boy=document.getElementById('boy'),doorWrap=document.getElementById('doorWrap'),doorLeft=document.getElementById('doorLeft'),doorRight=document.getElementById('doorRight'),backBtn=document.getElementById('backToHome');
-aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';
-setTimeout(()=>{doorWrap.classList.add('show');},1200);
-setTimeout(()=>{boy.style.animation='knockFront 0.35s ease 2';},2700);
-setTimeout(()=>{doorLeft.classList.add('open-left');doorRight.classList.add('open-right');boy.style.opacity='0';},3200);
-setTimeout(()=>{card.style.display='block';},3800);
-function openSection(w){gate.classList.add('hide');backBtn.style.display='block';aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';if(w==='ai')aiSec.style.display='block';if(w==='kits')kitsSec.style.display='block';if(w==='cats')blogsSec.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
-function backToGate(){gate.classList.remove('hide');backBtn.style.display='none';aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';location.reload();}
+const boy=document.getElementById('boy'),dl=document.getElementById('doorLeft'),dr=document.getElementById('doorRight'),card=document.getElementById('gate-card'),gate=document.getElementById('welcome-gate');
+setTimeout(()=>{boy.classList.add('knock-anim');},1200);
+setTimeout(()=>{dl.classList.add('open-left');dr.classList.add('open-right');},1700);
+setTimeout(()=>{boy.style.opacity='0';card.style.display='block';},2200);
+
+function openSection(w){gate.classList.add('hide');document.getElementById('backToHome').style.display='block';document.getElementById('ai-tools-section').style.display='none';document.getElementById('premium-kits-section').style.display='none';document.getElementById('blogs-section').style.display='none';if(w==='ai')document.getElementById('ai-tools-section').style.display='block';if(w==='kits')document.getElementById('premium-kits-section').style.display='block';if(w==='cats')document.getElementById('blogs-section').style.display='block';}
+
+// 3-LEVEL BACK LOGIC
+let posts=[];let curCat="";
+fetch('blog/posts.json').then(r=>r.json()).then(d=>{posts=d;});
+function openCat(c,e){e.preventDefault();curCat=c;document.getElementById('cat-view').style.display='none';document.getElementById('single-view').style.display='none';document.getElementById('list-view').style.display='block';document.getElementById('catTitle').innerText=c;let f=posts.filter(p=>p.category===c);document.getElementById('postList').innerHTML=f.map((p,i)=>`<div class="card" style="cursor:pointer" onclick="openPost('${p.file}')"><b>${i+1}. ${p.title}</b></div>`).join('')||'<p>No posts</p>';}
+function openPost(file){document.getElementById('list-view').style.display='none';document.getElementById('single-view').style.display='block';fetch('blog/'+file).then(r=>r.text()).then(t=>{document.getElementById('singleContent').innerHTML='<div class="card">'+t+'</div>';});}
+function backToList(){document.getElementById('single-view').style.display='none';document.getElementById('list-view').style.display='block';}
+function backToCats(){document.getElementById('list-view').style.display='none';document.getElementById('single-view').style.display='none';document.getElementById('cat-view').style.display='grid';}
+
+// AI Tabs
 function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++)document.getElementById('tab'+i).onclick=()=>show(i);
-async function callGemini(p,t,o,b){let old=b.innerText;b.innerText="AI Soch Raha Hai...";b.disabled=true;o.innerText="Wait...";try{let r=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:p,type:t})});let d=await r.json();o.innerText=d.result||"Error";}catch(e){o.innerText="Error:"+e.message}b.innerText=old;b.disabled=false}
+async function callGemini(p,t,o,b){let old=b.innerText;b.innerText="Wait...";b.disabled=true;o.innerText="Loading...";try{let r=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:p,type:t})});let d=await r.json();o.innerText=d.result||"Error";}catch(e){o.innerText="Error"}b.innerText=old;b.disabled=false}
 document.getElementById('b0').onclick=()=>callGemini(document.getElementById('topic').value||"My Video","script",document.getElementById('o0'),document.getElementById('b0'));
 document.getElementById('b1').onclick=()=>callGemini(document.getElementById('ttopic').value||"Video","thumbnail",document.getElementById('o1'),document.getElementById('b1'));
 document.getElementById('b2').onclick=()=>callGemini(document.getElementById('htopic').value||"my video","hashtag",document.getElementById('o2'),document.getElementById('b2'));
-document.getElementById('b3').onclick=async()=>{let t=document.getElementById('imgtopic').value||"landscape";let btn=document.getElementById('b3');let out=document.getElementById('o3');let pr=await callGemini(t,"image",out,btn);btn.innerText="Generate";btn.disabled=false;if(pr){let img=document.getElementById('imgout');img.style.display='block';img.src="https://image.pollinations.ai/prompt/"+encodeURIComponent(t)+"?nologo=true";}};
+document.getElementById('b3').onclick=()=>callGemini(document.getElementById('imgtopic').value||"landscape","image",document.getElementById('o3'),document.getElementById('b3'));
 document.getElementById('b4').onclick=()=>callGemini(document.getElementById('bgtopic').value||"photo","bgremove",document.getElementById('o4'),document.getElementById('b4'));
 document.getElementById('b5').onclick=()=>callGemini(document.getElementById('searchtopic').value||"news","search",document.getElementById('o5'),document.getElementById('b5'));
 document.getElementById('b6').onclick=()=>callGemini(document.getElementById('studytopic').value||"question","study",document.getElementById('o6'),document.getElementById('b6'));
-let blogPosts=[];fetch('blog/posts.json').then(r=>r.json()).then(d=>{blogPosts=d;});
-function showPosts(cat,e){
-  e.preventDefault();
-  document.getElementById('cat-view').style.display='none';
-  document.getElementById('post-view').style.display='block';
-  let f=blogPosts.filter(p=>p.category===cat);
-  let h=f.map((p,i)=>`<p>${i+1}. <a href="blog/${p.file}">${p.title}</a></p>`).join('');
-  if(!h) h='<p>Coming soon in '+cat+'</p>';
-  document.getElementById('post-list').innerHTML='<h3>'+cat+'</h3>'+h;
-}
-function backToCats(){
-  document.getElementById('post-view').style.display='none';
-  document.getElementById('cat-view').style.display='grid';
-}
 </script>
 </body>
 </html>
