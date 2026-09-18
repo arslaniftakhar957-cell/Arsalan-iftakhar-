@@ -4,13 +4,9 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ScoreLab Academy - IELTS Preparation, YouTube Automation & 500+ Prompts</title>
 <meta name="description" content="ScoreLab Academy: Best IELTS preparation online, YouTube automation course in Pakistan, 500+ ChatGPT prompts, freelancing prompts, English speaking course aur online earning guides." />
-<meta name="google-site-verification" content="Kq7Es1jl0UvMmtHqLcZgEYrhBum_k9avR2s4z9lYUfs" />
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 <style>
-*{box-sizing:border-box}
-body{font-family:system-ui,sans-serif;background:#f1f5f9;margin:0;color:#0f172a}
-.site-header{background:#fff;padding:10px 12px;box-shadow:0 2px 10px rgba(0,0,0,.08);position:fixed;top:0;left:0;right:0;z-index:999}
-body{padding-top:68px}
+*{box-sizing:border-box} body{font-family:system-ui,sans-serif;background:#f1f5f9;margin:0;color:#0f172a;padding-top:68px}
+.site-header{background:#fff;padding:10px 12px;box-shadow:0 2px 10px rgba(0,0,0,.08);position:fixed;top:0;left:0;right:0;z-index:998}
 .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px}
@@ -46,36 +42,34 @@ img.gen{width:100%;border-radius:12px;margin-top:10px}
 footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
-/* --- FINAL LOTTIE GATE - NO VIDEO NEEDED --- */
-#welcome-gate{position:fixed;inset:0;width:100%;height:100vh;background:radial-gradient(circle at 50% 0%, #e0e7ff, #ffffff 60%, #f1f5f9);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;overflow:hidden;transition:0.9s cubic-bezier(0.77,0,0.175,1)}
+/* --- ANIMATION FRONT GATE --- */
+#welcome-gate{position:fixed;inset:0;width:100%;height:100vh;background:linear-gradient(#e0e7ff,#ffffff);z-index:9999;display:flex;justify-content:center;align-items:center;overflow:hidden;transition:0.8s cubic-bezier(0.77,0,0.175,1)}
 #welcome-gate.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
-.lottie-wrap{width:280px;height:280px;animation:walkIn 2.5s ease-out forwards}
-@keyframes walkIn{0%{transform:translateX(-350px)}70%{transform:translateX(20px)}85%{transform:translateX(-10px)}100%{transform:translateX(0)}}
-.gate-card{margin-top:5px;background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:26px;padding:26px;width:365px;max-width:90vw;text-align:center;box-shadow:0 25px 70px rgba(0,0,0,0.15);animation:pop 0.7s 2.6s both}
-@keyframes pop{from{transform:scale(0.7) translateY(30px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-.gate-btn{width:100%;padding:15px;margin:10px 0;border-radius:14px;font-weight:800;border:none;cursor:pointer;font-size:15px;box-shadow:0 4px 0 rgba(0,0,0,0.15);transition:0.2s}
-.gate-btn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,0.15)}
-.gate-btn.tools{background:#0f172a;color:#fff}
-.gate-btn.kits{background:#facc15;color:#000}
-.gate-btn.cats{background:#fff;color:#000;border:2px solid #0f172a;box-shadow:0 4px 0 #0f172a}
+#scene{position:relative;width:100%;height:100%;display:flex;justify-content:center;align-items:center;flex-direction:column}
+#boy{font-size:90px;position:absolute;bottom:55%;left:-150px;animation:walk 2.2s ease-out forwards, knock 0.4s 2.3s ease-in-out 2}
+@keyframes walk{0%{left:-150px}100%{left:50%;transform:translateX(-50%)}}
+@keyframes knock{0%{transform:translateX(-50%) rotate(0)}25%{transform:translateX(-50%) rotate(-15deg)}50%{transform:translateX(-50%) rotate(15deg)}75%{transform:translateX(-50%) rotate(-10deg)}100%{transform:translateX(-50%) rotate(0)}}
+#door{font-size:100px;position:absolute;bottom:55%;left:50%;transform:translateX(25px)}
+#gate-card{display:none;background:#fff;border-radius:26px;padding:26px;width:360px;max-width:90vw;text-align:center;box-shadow:0 25px 80px rgba(0,0,0,.3);animation:pop 0.6s}
+@keyframes pop{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}}
+.gate-btn{width:100%;padding:15px;margin:8px 0;border-radius:14px;font-weight:900;border:none;cursor:pointer}
 #backToHome{position:fixed;bottom:20px;right:20px;z-index:9998;background:#0f2a6b;color:#fff;padding:12px 20px;border-radius:30px;border:none;font-weight:bold;display:none;cursor:pointer}
 </style>
 </head>
 <body>
 
 <div id="welcome-gate">
-  <div class="lottie-wrap">
-    <dotlottie-player src="https://lottie.host/4f7a4c65-2dcd-47a9-8a1a-5c5f8e0c0b9a/9u3pA7qJzI.lottie" autoplay loop style="width:100%;height:100%"></dotlottie-player>
-  </div>
-  <!-- Fallback if lottie fails, show 3D boy image -->
-  <div style="font-size:12px;color:#94a3b8;margin-top:-10px">Welcome to ScoreLab 🎒</div>
-  <div class="gate-card">
-    <h2 style="margin:0 0 6px;font-size:26px;font-weight:900;background:linear-gradient(135deg,#1e3a8a,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent">ScoreLab Academy</h2>
-    <p style="margin:0 0 18px;color:#64748b;font-size:13px;font-weight:600">Aap kya dekhna chahte hain?</p>
-    <button class="gate-btn tools" onclick="openSection('ai')">🚀 Seven AI Tools</button>
-    <button class="gate-btn kits" onclick="openSection('kits')">💎 Premium Kits</button>
-    <button class="gate-btn cats" onclick="openSection('cats')">📚 Seven Categories Post</button>
-  </div>
+<div id="scene">
+<div id="door">🚪</div>
+<div id="boy">👦🎒</div>
+<div id="gate-card">
+<h2 style="margin:0 0 6px;font-size:26px;font-weight:900">ScoreLab Academy</h2>
+<p style="margin:0 0 16px;color:#64748b;font-size:13px;font-weight:600">Welcome! Choose Your Path</p>
+<button class="gate-btn" style="background:#0f172a;color:#fff" onclick="openSection('ai')">🚀 Seven AI Tools</button>
+<button class="gate-btn" style="background:#facc15;color:#000" onclick="openSection('kits')">💎 Premium Kits</button>
+<button class="gate-btn" style="background:#fff;color:#000;border:2px solid #000" onclick="openSection('cats')">📚 Seven Categories Post</button>
+</div>
+</div>
 </div>
 <button id="backToHome" onclick="backToGate()">⬅️ Back to Menu</button>
 
@@ -104,6 +98,7 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="card" id="t5" style="display:none"><h3>All-in-One Search Tool</h3><input id="searchtopic" placeholder="Kya search karna hai?"><button id="b5">Smart Search Answer</button><pre id="o5">Yahan smart answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o5').innerText);alert('Copied!')">Copy</button></div>
 <div class="card" id="t6" style="display:none"><h3>AI Study Helper</h3><input id="studytopic" placeholder="Sawal likho: 9th class math chapter 2"><button id="b6">Get Easy Answer</button><pre id="o6">Yahan easy answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o6').innerText);alert('Copied!')">Copy Answer</button></div>
 </div>
+
 <div id="premium-kits-section">
 <div class="premium">
 <h3>🚀 Premium Kits - Level Up Karo</h3>
@@ -116,6 +111,7 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <button class="wa-btn" onclick="window.open('https://wa.me/923041139084?text=Assalam-o-Alaikum!%20Mujhe%20Premium%20Kits%20ke%20bare%20me%20info%20chahiye','_blank')">💬 WhatsApp Par Rabta Karo</button>
 </div>
 </div>
+
 <div id="blogs-section">
 <div class="blog-sec">
 <h2>📚 Latest Blog Post Categories</h2>
@@ -142,27 +138,12 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="copyright">© 2026 ScoreLab Academy. All rights reserved.</div>
 
 <script>
-const aiSec = document.getElementById('ai-tools-section');
-const kitsSec = document.getElementById('premium-kits-section');
-const blogsSec = document.getElementById('blogs-section');
-const gate = document.getElementById('welcome-gate');
-const backBtn = document.getElementById('backToHome');
-aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
-function openSection(which){
-  gate.classList.add('hide');
-  backBtn.style.display='block';
-  aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
-  if(which==='ai') aiSec.style.display='block';
-  if(which==='kits') kitsSec.style.display='block';
-  if(which==='cats') blogsSec.style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function backToGate(){
-  gate.classList.remove('hide');
-  backBtn.style.display='none';
-  aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+const aiSec=document.getElementById('ai-tools-section');const kitsSec=document.getElementById('premium-kits-section');const blogsSec=document.getElementById('blogs-section');const gate=document.getElementById('welcome-gate');const card=document.getElementById('gate-card');const backBtn=document.getElementById('backToHome');
+aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';
+setTimeout(()=>{document.getElementById('boy').innerText='👦🎒✊';},2200);
+setTimeout(()=>{card.style.display='block';document.getElementById('boy').style.display='none';document.getElementById('door').style.display='none';},3100);
+function openSection(which){gate.classList.add('hide');backBtn.style.display='block';aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';if(which==='ai')aiSec.style.display='block';if(which==='kits')kitsSec.style.display='block';if(which==='cats')blogsSec.style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+function backToGate(){gate.classList.remove('hide');backBtn.style.display='none';aiSec.style.display='none';kitsSec.style.display='none';blogsSec.style.display='none';card.style.display='none';document.getElementById('boy').style.display='block';document.getElementById('door').style.display='block';document.getElementById('boy').innerText='👦🎒';document.getElementById('boy').style.animation='none';setTimeout(()=>{document.getElementById('boy').style.animation='walk 2.2s ease-out forwards, knock 0.4s 2.3s ease-in-out 2';setTimeout(()=>{document.getElementById('boy').innerText='👦🎒✊';},2200);setTimeout(()=>{card.style.display='block';document.getElementById('boy').style.display='none';document.getElementById('door').style.display='none';},3100);},100);}
 function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 async function callGemini(prompt,type,outputEl,btn){const oldText=btn.innerText;btn.innerText="AI Soch Raha Hai...";btn.disabled=true;outputEl.innerText="Please wait... Gemini AI likh raha hai...";try{const res=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,type})});const data=await res.json();outputEl.innerText=data.result||"Error aaya, dobara try karo.";return data.result;}catch(e){outputEl.innerText="Error: "+e.message;}btn.innerText=oldText;btn.disabled=false;}
