@@ -45,7 +45,6 @@ img.gen{width:100%;border-radius:12px;margin-top:10px}
 footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
-
 /* === FRONT ELEVATION FIXED - NO SMALL POPUP === */
 #welcomeGate{position:fixed;inset:0;z-index:9999;background:#0f172a;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .gate-bg{position:absolute;inset:0;background:radial-gradient(circle at center,#1e293b 0%,#0f172a 100%)}
@@ -57,9 +56,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .door-half.right::after{left:24px}
 #welcomeGate.open .door-half.left{transform:translateX(-102%)}
 #welcomeGate.open .door-half.right{transform:translateX(102%)}
-#boyImg{position:fixed;bottom:42%;left:50%;transform:translateX(-50%);width:220px;z-index:10000;pointer-events:none;filter:drop-shadow(0 25px 35px rgba(0,0,0,.7));background:transparent}
-#boyImg.knock{animation:knock 0.45s ease 4}
-@keyframes knock{0%,100%{transform:translateX(-50%) translateX(0)}25%{transform:translateX(-50%) translateX(-4px)}75%{transform:translateX(-50%) translateX(4px)}}
 .gate-menu{position:absolute;z-index:10001;top:50%;left:50%;transform:translate(-50%,-50%);background:#ffffff;padding:26px 20px;border-radius:26px;box-shadow:0 25px 80px rgba(0,0,0,.5);width:90%;max-width:370px;text-align:center;display:none;border:1px solid #e2e8f0}
 .gate-menu.show{display:block;animation:pop 0.6s cubic-bezier(.34,1.56,.64,1)}
 @keyframes pop{from{transform:translate(-50%,-50%) scale(.7);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
@@ -73,14 +69,12 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 </style>
 </head>
 <body>
-
 <div id="welcomeGate">
 <div class="gate-bg"></div>
 <div class="door-wrap">
 <div class="door-half left"></div>
 <div class="door-half right"></div>
 </div>
-<img id="boyImg" src="boy-knock.png" alt="boy knocking" />
 <div class="gate-menu" id="gateMenu">
 <h2>Welcome to ScoreLab</h2>
 <p>Darwaza khul gaya hai — neeche se koi ek choose karo</p>
@@ -89,14 +83,11 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <button onclick="openSection('blog')">📚 7 Blog Categories</button>
 </div>
 </div>
-
 <header class="site-header"><div class="header-inner">
 <a href="index.html" class="logo"><div class="logo-icon">🛡️</div><div class="logo-text"><b>ScoreLab</b><span>ACADEMY</span></div></a>
 <nav class="site-nav"><a href="index.html" class="active">Home</a><a href="about.html">About</a><a href="blog/">Blog</a><a href="contact.html">Contact</a></nav>
 </div></header>
-
 <div class="wrap" id="mainWrap">
-
 <div id="section-ai">
 <button class="back-to-gate" onclick="goHome()" style="display:none" id="backAi">← Back to Menu</button>
 <div class="sec-title">✨ AI Tools</div>
@@ -109,7 +100,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="tool-card" id="tab5"><div class="tool-icon" style="background:linear-gradient(135deg,#60a5fa,#2563eb)">🔎</div><b>Search Tool</b><br><small>Smart search</small></div>
 <div class="tool-card" id="tab6" style="grid-column:span 2"><div class="tool-icon" style="background:linear-gradient(135deg,#8b5cf6,#4f46e5)">🎓</div><b>Study Helper</b><br><small>Learn easy</small></div>
 </div>
-
 <div class="card" id="t0"><h3>YouTube Script Writer (Free Pro)</h3><input id="topic" placeholder="Topic likho: iPhone 17 review"><button id="b0">Generate Viral Script</button><pre id="o0">Yahan best script aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o0').innerText);alert('Copied!')">Copy Script</button></div>
 <div class="card" id="t1" style="display:none"><h3>Thumbnail Ideas (Free Pro)</h3><input id="ttopic" placeholder="Topic likho: Biryani Challenge"><button id="b1">Generate 10 Viral Ideas</button><pre id="o1">Yahan ideas aayenge...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o1').innerText);alert('Copied!')">Copy Ideas</button></div>
 <div class="card" id="t2" style="display:none"><h3>YouTube SEO Kit (Free Pro)</h3><input id="htopic" placeholder="Topic likho: cricket highlights"><button id="b2">Generate Title + Tags</button><pre id="o2">Yahan SEO aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o2').innerText);alert('Copied!')">Copy SEO</button></div>
@@ -118,7 +108,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="card" id="t5" style="display:none"><h3>All-in-One Search Tool</h3><input id="searchtopic" placeholder="Kya search karna hai?"><button id="b5">Smart Search Answer</button><pre id="o5">Yahan smart answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o5').innerText);alert('Copied!')">Copy</button></div>
 <div class="card" id="t6" style="display:none"><h3>AI Study Helper</h3><input id="studytopic" placeholder="Sawal likho: 9th class math chapter 2"><button id="b6">Get Easy Answer</button><pre id="o6">Yahan easy answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o6').innerText);alert('Copied!')">Copy Answer</button></div>
 </div>
-
 <div id="section-premium">
 <button class="back-to-gate" onclick="goHome()" style="display:none" id="backPremium">← Back to Menu</button>
 <div class="premium">
@@ -132,7 +121,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <button class="wa-btn" onclick="window.open('https://wa.me/923041139084?text=Assalam-o-Alaikum!%20Mujhe%20Premium%20Kits%20ke%20bare%20me%20info%20chahiye','_blank')">💬 WhatsApp Par Rabta Karo</button>
 </div>
 </div>
-
 <div id="section-blog">
 <button class="back-to-gate" onclick="goHome()" style="display:none" id="backBlog">← Back to Menu</button>
 <div class="blog-sec">
@@ -146,12 +134,10 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <a href="#" onclick="showPosts('Digital Marketing',event)" style="background:#fce7f3;color:#be185d">📢<br>Digital Marketing</a>
 <a href="#" onclick="showPosts('Lifestyle & Travel',event)" style="background:#ccfbf1;color:#0f766e;grid-column:span 2">✈️<br>Lifestyle & Travel</a>
 </div>
-<div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px">← Back</button><div id="post-list"></div></div>
+<div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px">← Back to Categories</button><div id="post-list"></div></div>
 </div>
 </div>
-
 </div>
-
 <footer class="site-footer">
 <div style="font-size:20px;font-weight:800">ScoreLab Academy</div>
 <p style="color:#bfdbfe">Empowering learners with AI tools & premium kits</p>
@@ -159,15 +145,11 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <p>© 2026 ScoreLab Academy</p>
 </footer>
 <div class="copyright">© 2026 ScoreLab Academy. All rights reserved.</div>
-
 <script>
 let gate=document.getElementById('welcomeGate');
-let boy=document.getElementById('boyImg');
 let menu=document.getElementById('gateMenu');
-setTimeout(()=>{boy.classList.add('knock')},300);
-setTimeout(()=>{gate.classList.add('open');},1600);
-setTimeout(()=>{menu.classList.add('show'); boy.style.transition='opacity 0.6s, transform 0.6s'; boy.style.opacity='0'; boy.style.transform='translateX(-50%) scale(0.85)';},2400);
-
+setTimeout(()=>{gate.classList.add('open');},800);
+setTimeout(()=>{menu.classList.add('show');},1600);
 function openSection(which){
 gate.style.display='none';
 document.getElementById('section-ai').style.display = which==='ai'?'block':'none';
@@ -176,6 +158,7 @@ document.getElementById('section-blog').style.display = which==='blog'?'block':'
 document.getElementById('backAi').style.display = which==='ai'?'inline-block':'none';
 document.getElementById('backPremium').style.display = which==='premium'?'inline-block':'none';
 document.getElementById('backBlog').style.display = which==='blog'?'inline-block':'none';
+if(which==='blog'){backToCats();}
 window.scrollTo(0,0);
 }
 function goHome(){
@@ -184,7 +167,6 @@ gate.classList.remove('open');
 void gate.offsetWidth;
 gate.classList.add('open');
 menu.classList.add('show');
-boy.style.opacity='0';
 document.getElementById('section-ai').style.display='block';
 document.getElementById('section-premium').style.display='block';
 document.getElementById('section-blog').style.display='block';
@@ -193,7 +175,6 @@ document.getElementById('backPremium').style.display='none';
 document.getElementById('backBlog').style.display='none';
 backToCats();
 }
-
 function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 async function callGemini(prompt,type,outputEl,btn){const oldText=btn.innerText;btn.innerText="AI Soch Raha Hai...";btn.disabled=true;outputEl.innerText="Please wait... Gemini AI likh raha hai...";try{const res=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,type})});const data=await res.json();outputEl.innerText=data.result||"Error aaya, dobara try karo.";return data.result;}catch(e){outputEl.innerText="Error: "+e.message;}btn.innerText=oldText;btn.disabled=false;}
@@ -205,8 +186,21 @@ document.getElementById('b4').onclick=()=>{let t=document.getElementById('bgtopi
 document.getElementById('b5').onclick=()=>{let t=document.getElementById('searchtopic').value.trim()||"today news";callGemini(t,"search",document.getElementById('o5'),document.getElementById('b5'));};
 document.getElementById('b6').onclick=()=>{let t=document.getElementById('studytopic').value.trim()||"my question";callGemini(t,"study",document.getElementById('o6'),document.getElementById('b6'));};
 let blogPosts=[];fetch('blog/posts.json').then(r=>r.json()).then(d=>{blogPosts=d;});
-function showPosts(cat,e){e.preventDefault();document.getElementById('cat-view').style.display='none';document.getElementById('post-view').style.display='block';let f=blogPosts.filter(p=>p.category===cat);let html=f.map((p,i)=>`<p>${i+1}. <a href="blog/${p.file}">${p.title}</a></p>`).join('');if(!html)html='<p>New post coming soon</p>';document.getElementById('post-list').innerHTML='<h3>'+cat+'</h3>'+html;}
-function backToCats(){document.getElementById('post-view').style.display='none';document.getElementById('cat-view').style.display='grid';}
+function showPosts(cat,e){
+e.preventDefault();
+document.getElementById('cat-view').style.display='none';
+document.getElementById('post-view').style.display='block';
+document.getElementById('backBlog').style.display='none';
+let f=blogPosts.filter(p=>p.category===cat);
+let html=f.map((p,i)=>`<p>${i+1}. <a href="blog/${p.file}">${p.title}</a></p>`).join('');
+if(!html)html='<p>New post coming soon</p>';
+document.getElementById('post-list').innerHTML='<h3>'+cat+'</h3>'+html;
+}
+function backToCats(){
+document.getElementById('post-view').style.display='none';
+document.getElementById('cat-view').style.display='grid';
+document.getElementById('backBlog').style.display='inline-block';
+}
 </script>
 </body>
 </html>
