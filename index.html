@@ -46,28 +46,29 @@ footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
 
-/* === FRONT ELEVATION - SIRF NAYA HISSA === */
-#welcomeGate{position:fixed;inset:0;z-index:9999;background:#e2e8f0;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.gate-bg{position:absolute;inset:0;background:linear-gradient(180deg,#cbd5e1 0%,#f1f5f9 100%)}
-.door-wrap{position:relative;width:360px;height:520px;display:flex;box-shadow:0 20px 60px rgba(0,0,0,.25);border-radius:6px;overflow:hidden;background:#1e293b;transition:transform 1s ease}
-.door-half{width:50%;height:100%;background:linear-gradient(180deg,#334155,#1e293b);border:2px solid #0f172a;position:relative;transition:transform 0.9s cubic-bezier(.77,0,.18,1)}
-.door-half.left{border-right:1px solid #0f172a;transform-origin:left}
-.door-half.right{border-left:1px solid #0f172a;transform-origin:right}
-.door-half::after{content:'⚪';position:absolute;top:50%;font-size:14px}
-.door-half.left::after{right:14px}
-.door-half.right::after{left:14px}
-#welcomeGate.open .door-half.left{transform:translateX(-102%) rotateY(-15deg)}
-#welcomeGate.open .door-half.right{transform:translateX(102%) rotateY(15deg)}
-#boyImg{position:fixed;bottom:42%;left:50%;transform:translateX(-50%);width:160px;z-index:10000;pointer-events:none;filter:drop-shadow(0 10px 15px rgba(0,0,0,.3))}
-#boyImg.knock{animation:knock 0.5s ease 3}
-@keyframes knock{0%,100%{transform:translateX(-50%) translateY(0)}25%{transform:translateX(-50%) translateY(-2px) rotate(-2deg)}75%{transform:translateX(-50%) translateY(2px) rotate(2deg)}}
-.gate-menu{position:absolute;z-index:10001;top:52%;left:50%;transform:translate(-50%,-50%);background:#ffffffee;backdrop-filter:blur(8px);padding:20px;border-radius:22px;box-shadow:0 12px 40px rgba(0,0,0,.18);width:90%;max-width:340px;text-align:center;display:none}
-.gate-menu.show{display:block;animation:pop 0.5s ease}
-@keyframes pop{from{transform:translate(-50%,-50%) scale(.8);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
-.gate-menu h2{color:#1e3a8a;margin:0 0 14px;font-size:22px}
-.gate-menu button{margin-top:10px;font-size:15px;padding:14px}
-.gate-menu button:nth-child(3){background:#7c3aed}
-.gate-menu button:nth-child(4){background:#0d9488}
+/* === FRONT ELEVATION FIXED - NO SMALL POPUP === */
+#welcomeGate{position:fixed;inset:0;z-index:9999;background:#0f172a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gate-bg{position:absolute;inset:0;background:radial-gradient(circle at center,#1e293b 0%,#0f172a 100%)}
+.door-wrap{position:relative;width:100%;max-width:420px;height:100%;max-height:720px;display:flex;background:#000;box-shadow:0 0 0 1px #000}
+.door-half{width:50%;height:100%;background:linear-gradient(180deg,#334155 0%,#1e293b 60%,#0f172a 100%);border:1px solid #020617;position:relative;transition:transform 1s cubic-bezier(.77,0,.18,1)}
+.door-half::before{content:'';position:absolute;inset:18px;border:1px solid rgba(255,255,255,.06);border-radius:2px}
+.door-half::after{content:'⚪';position:absolute;top:50%;font-size:20px;color:#e2e8f0}
+.door-half.left::after{right:24px}
+.door-half.right::after{left:24px}
+#welcomeGate.open .door-half.left{transform:translateX(-102%)}
+#welcomeGate.open .door-half.right{transform:translateX(102%)}
+#boyImg{position:fixed;bottom:42%;left:50%;transform:translateX(-50%);width:220px;z-index:10000;pointer-events:none;filter:drop-shadow(0 25px 35px rgba(0,0,0,.7));background:transparent}
+#boyImg.knock{animation:knock 0.45s ease 4}
+@keyframes knock{0%,100%{transform:translateX(-50%) translateX(0)}25%{transform:translateX(-50%) translateX(-4px)}75%{transform:translateX(-50%) translateX(4px)}}
+.gate-menu{position:absolute;z-index:10001;top:50%;left:50%;transform:translate(-50%,-50%);background:#ffffff;padding:26px 20px;border-radius:26px;box-shadow:0 25px 80px rgba(0,0,0,.5);width:90%;max-width:370px;text-align:center;display:none;border:1px solid #e2e8f0}
+.gate-menu.show{display:block;animation:pop 0.6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{from{transform:translate(-50%,-50%) scale(.7);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+.gate-menu h2{color:#1e3a8a;margin:0 0 6px;font-size:24px}
+.gate-menu p{color:#64748b;font-size:13px;margin:0 0 14px}
+.gate-menu button{margin-top:10px;font-size:15px;padding:14px;border-radius:14px}
+.gate-menu button:nth-child(3){background:#2563eb}
+.gate-menu button:nth-child(4){background:#7c3aed}
+.gate-menu button:nth-child(5){background:#0d9488}
 .back-to-gate{width:auto !important;background:#1e2a78 !important;padding:8px 18px !important;border-radius:20px !important;margin-bottom:12px !important;display:inline-block}
 </style>
 </head>
@@ -75,13 +76,14 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 
 <div id="welcomeGate">
 <div class="gate-bg"></div>
-<div class="door-wrap" id="doorWrap">
+<div class="door-wrap">
 <div class="door-half left"></div>
 <div class="door-half right"></div>
 </div>
 <img id="boyImg" src="boy-knock.png" alt="boy knocking" />
 <div class="gate-menu" id="gateMenu">
 <h2>Welcome to ScoreLab</h2>
+<p>Darwaza khul gaya hai — neeche se koi ek choose karo</p>
 <button onclick="openSection('ai')">🤖 Seven AI Tools</button>
 <button onclick="openSection('premium')">🚀 Premium Kits</button>
 <button onclick="openSection('blog')">📚 7 Blog Categories</button>
@@ -159,14 +161,12 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="copyright">© 2026 ScoreLab Academy. All rights reserved.</div>
 
 <script>
-// === GATE LOGIC - NAYA ===
 let gate=document.getElementById('welcomeGate');
 let boy=document.getElementById('boyImg');
 let menu=document.getElementById('gateMenu');
-let door=document.getElementById('doorWrap');
-setTimeout(()=>{boy.classList.add('knock')},400);
-setTimeout(()=>{gate.classList.add('open');},1500);
-setTimeout(()=>{menu.classList.add('show');boy.style.display='none';},2200);
+setTimeout(()=>{boy.classList.add('knock')},300);
+setTimeout(()=>{gate.classList.add('open');},1600);
+setTimeout(()=>{menu.classList.add('show'); boy.style.transition='opacity 0.6s, transform 0.6s'; boy.style.opacity='0'; boy.style.transform='translateX(-50%) scale(0.85)';},2400);
 
 function openSection(which){
 gate.style.display='none';
@@ -180,9 +180,11 @@ window.scrollTo(0,0);
 }
 function goHome(){
 gate.style.display='flex';
+gate.classList.remove('open');
+void gate.offsetWidth;
 gate.classList.add('open');
 menu.classList.add('show');
-boy.style.display='none';
+boy.style.opacity='0';
 document.getElementById('section-ai').style.display='block';
 document.getElementById('section-premium').style.display='block';
 document.getElementById('section-blog').style.display='block';
@@ -192,7 +194,6 @@ document.getElementById('backBlog').style.display='none';
 backToCats();
 }
 
-// === TUMHARA ORIGINAL CODE - WORD TO WORD SAME ===
 function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 async function callGemini(prompt,type,outputEl,btn){const oldText=btn.innerText;btn.innerText="AI Soch Raha Hai...";btn.disabled=true;outputEl.innerText="Please wait... Gemini AI likh raha hai...";try{const res=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,type})});const data=await res.json();outputEl.innerText=data.result||"Error aaya, dobara try karo.";return data.result;}catch(e){outputEl.innerText="Error: "+e.message;}btn.innerText=oldText;btn.disabled=false;}
