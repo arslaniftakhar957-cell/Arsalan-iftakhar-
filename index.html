@@ -45,35 +45,39 @@ img.gen{width:100%;border-radius:12px;margin-top:10px}
 footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
-
-/* --- NEW GATE STYLES (ONLY NEW PART) --- */
-#welcome-gate{position:fixed;top:0;left:0;width:100%;height:100vh;background:#ffffff;z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:all 0.7s ease;overflow:hidden}
+/* --- PREMIUM ATTRACTIVE GATE --- */
+#welcome-gate{position:fixed;top:0;left:0;width:100%;height:100vh;background:radial-gradient(circle at 50% 20%, #e0e7ff 0%, #ffffff 55%, #f1f5f9 100%);z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:all 0.8s cubic-bezier(0.77, 0, 0.175, 1);overflow:hidden}
 #welcome-gate.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
-.gate-character{font-size:90px;animation:gateWalk 1.8s ease-out forwards; position:relative;}
-@keyframes gateWalk{0%{transform:translateX(-150px)}100%{transform:translateX(0)}}
-.gate-card{margin-top:10px;background:#fff;border:2px solid #000;border-radius:18px;padding:22px;width:340px;max-width:90vw;text-align:center;box-shadow:8px 8px 0 #000;transform:scale(0);animation:gatePop 0.5s 1.9s forwards}
-@keyframes gatePop{to{transform:scale(1)}}
-.gate-btn{display:block;width:100%;padding:14px;margin:10px 0;border-radius:12px;font-weight:800;text-decoration:none;cursor:pointer;border:2px solid #000;font-size:15px}
-.gate-btn.tools{background:#000;color:#fff}
-.gate-btn.kits{background:#ffde59;color:#000}
-.gate-btn.cats{background:#fff;color:#000}
-#backToHome{position:fixed;bottom:20px;right:20px;z-index:9998;background:#0f2a6b;color:#fff;padding:12px 18px;border-radius:30px;border:none;font-weight:bold;display:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.gate-bg-blur{position:absolute;width:600px;height:600px;background:#6366f1;filter:blur(130px);opacity:0.18;border-radius:50%;top:-120px}
+.gate-character{font-size:85px;animation:gateWalk 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;position:relative;z-index:2}
+@keyframes gateWalk{0%{transform:translateX(-400px) rotate(-5deg)}60%{transform:translateX(25px) rotate(4deg)}80%{transform:translateX(-12px) rotate(-2deg)}100%{transform:translateX(0) rotate(0)}}
+.gate-card{margin-top:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,0.08);border-radius:26px;padding:28px;width:365px;max-width:90vw;text-align:center;box-shadow:0 25px 70px rgba(0,0,0,0.15);transform:scale(0) translateY(40px);animation:gatePop 0.7s 2.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards}
+@keyframes gatePop{to{transform:scale(1) translateY(0)}}
+.gate-btn{display:block;width:100%;padding:15px;margin:12px 0;border-radius:14px;font-weight:800;cursor:pointer;border:none;font-size:15px;transition:all 0.2s;box-shadow:0 4px 0 rgba(0,0,0,0.12)}
+.gate-btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,0.12)}
+.gate-btn.tools{background:#0f172a;color:#fff}
+.gate-btn.tools:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(15,23,42,0.3)}
+.gate-btn.kits{background:#facc15;color:#000}
+.gate-btn.kits:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(250,204,21,0.45)}
+.gate-btn.cats{background:#fff;color:#0f172a;border:2px solid #0f172a;box-shadow:0 4px 0 #0f172a}
+#backToHome{position:fixed;bottom:20px;right:20px;z-index:9998;background:#0f2a6b;color:#fff;padding:12px 20px;border-radius:30px;border:none;font-weight:bold;display:none;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 </style>
 </head>
 <body>
 
-<!-- NEW FRONT GATE - BAG WALA -->
 <div id="welcome-gate">
-  <div class="gate-character">🚶‍♂️💼</div>
+  <div class="gate-bg-blur"></div>
+  <div class="gate-character">👨‍🎓🎒</div>
   <div class="gate-card">
-    <h2 style="margin:0 0 8px;font-size:22px;font-weight:900">ScoreLab Academy</h2>
-    <p style="font-size:13px;color:#64748b;margin:0 0 16px">Aap kya dekhna chahte hain?</p>
+    <h2 style="margin:0 0 6px;font-size:26px;font-weight:900;background:linear-gradient(135deg,#1e3a8a,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent">ScoreLab Academy</h2>
+    <p style="font-size:13px;color:#64748b;margin:0 0 20px;font-weight:600">Aapka Learning Hub - Kya dekhna chahte hain?</p>
     <button class="gate-btn tools" onclick="openSection('ai')">🚀 Seven AI Tools</button>
     <button class="gate-btn kits" onclick="openSection('kits')">💎 Premium Kits</button>
     <button class="gate-btn cats" onclick="openSection('cats')">📚 Seven Categories Post</button>
+    <p style="font-size:10px;color:#94a3b8;margin:14px 0 0;letter-spacing:1px">SELECT ANY TO CONTINUE →</p>
   </div>
 </div>
-<button id="backToHome" onclick="backToGate()">⬅️ Back</button>
+<button id="backToHome" onclick="backToGate()">⬅️ Back to Menu</button>
 
 <header class="site-header"><div class="header-inner">
 <a href="index.html" class="logo"><div class="logo-icon">🛡️</div><div class="logo-text"><b>ScoreLab</b><span>ACADEMY</span></div></a>
@@ -81,8 +85,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 </div></header>
 
 <div class="wrap">
-
-<!-- WRAPPER 1: AI TOOLS (7) -->
 <div id="ai-tools-section">
 <div class="sec-title">✨ AI Tools</div>
 <div class="tools-grid">
@@ -102,8 +104,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="card" id="t5" style="display:none"><h3>All-in-One Search Tool</h3><input id="searchtopic" placeholder="Kya search karna hai?"><button id="b5">Smart Search Answer</button><pre id="o5">Yahan smart answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o5').innerText);alert('Copied!')">Copy</button></div>
 <div class="card" id="t6" style="display:none"><h3>AI Study Helper</h3><input id="studytopic" placeholder="Sawal likho: 9th class math chapter 2"><button id="b6">Get Easy Answer</button><pre id="o6">Yahan easy answer aayega...</pre><button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('o6').innerText);alert('Copied!')">Copy Answer</button></div>
 </div>
-
-<!-- WRAPPER 2: PREMIUM KITS -->
 <div id="premium-kits-section">
 <div class="premium">
 <h3>🚀 Premium Kits - Level Up Karo</h3>
@@ -116,8 +116,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <button class="wa-btn" onclick="window.open('https://wa.me/923041139084?text=Assalam-o-Alaikum!%20Mujhe%20Premium%20Kits%20ke%20bare%20me%20info%20chahiye','_blank')">💬 WhatsApp Par Rabta Karo</button>
 </div>
 </div>
-
-<!-- WRAPPER 3: BLOG CATEGORIES -->
 <div id="blogs-section">
 <div class="blog-sec">
 <h2>📚 Latest Blog Post Categories</h2>
@@ -133,7 +131,6 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div id="post-view" style="display:none"><button onclick="backToCats()" style="width:auto;background:#1e2a78;padding:8px 18px;border-radius:20px">← Back</button><div id="post-list"></div></div>
 </div>
 </div>
-
 </div>
 
 <footer class="site-footer">
@@ -145,22 +142,16 @@ footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 <div class="copyright">© 2026 ScoreLab Academy. All rights reserved.</div>
 
 <script>
-// --- NEW GATE LOGIC ---
 const aiSec = document.getElementById('ai-tools-section');
 const kitsSec = document.getElementById('premium-kits-section');
 const blogsSec = document.getElementById('blogs-section');
 const gate = document.getElementById('welcome-gate');
 const backBtn = document.getElementById('backToHome');
-
-// Start par sirf Gate dikhega, baqi sab hide
 aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
-
 function openSection(which){
   gate.classList.add('hide');
   backBtn.style.display='block';
-  // Sab hide karo
   aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
-  // Sirf jo manga wohi show karo
   if(which==='ai') aiSec.style.display='block';
   if(which==='kits') kitsSec.style.display='block';
   if(which==='cats') blogsSec.style.display='block';
@@ -172,8 +163,6 @@ function backToGate(){
   aiSec.style.display='none'; kitsSec.style.display='none'; blogsSec.style.display='none';
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
-// --- AAP KA PURANA CODE (SAME TO SAME) ---
 function show(n){for(let i=0;i<7;i++){document.getElementById('t'+i).style.display=i===n?'block':'none';document.getElementById('tab'+i).classList.toggle('active',i===n)}}
 for(let i=0;i<7;i++){document.getElementById('tab'+i).onclick=()=>show(i)}
 async function callGemini(prompt,type,outputEl,btn){const oldText=btn.innerText;btn.innerText="AI Soch Raha Hai...";btn.disabled=true;outputEl.innerText="Please wait... Gemini AI likh raha hai...";try{const res=await fetch('/api/gemini',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,type})});const data=await res.json();outputEl.innerText=data.result||"Error aaya, dobara try karo.";return data.result;}catch(e){outputEl.innerText="Error: "+e.message;}btn.innerText=oldText;btn.disabled=false;}
