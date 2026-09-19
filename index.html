@@ -45,42 +45,45 @@ img.gen{width:100%;border-radius:12px;margin-top:10px}
 footer.site-footer{background:#0f2a6b;color:#fff;padding:28px 18px;margin-top:24px;text-align:center}
 footer.site-footer a{color:#cbd5e1;text-decoration:none;font-size:14px}
 .copyright{text-align:center;padding:12px;color:#64748b;font-size:13px}
-/* === FRONT ELEVATION FIXED - NO SMALL POPUP === */
-#welcomeGate{position:fixed;inset:0;z-index:9999;background:#0f172a;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.gate-bg{position:absolute;inset:0;background:radial-gradient(circle at center,#1e293b 0%,#0f172a 100%)}
-.door-wrap{position:relative;width:100%;max-width:420px;height:100%;max-height:720px;display:flex;background:#000;box-shadow:0 0 0 1px #000}
-.door-half{width:50%;height:100%;background:linear-gradient(180deg,#334155 0%,#1e293b 60%,#0f172a 100%);border:1px solid #020617;position:relative;transition:transform 1s cubic-bezier(.77,0,.18,1)}
-.door-half::before{content:'';position:absolute;inset:18px;border:1px solid rgba(255,255,255,.06);border-radius:2px}
-.door-half::after{content:'⚪';position:absolute;top:50%;font-size:20px;color:#e2e8f0}
-.door-half.left::after{right:24px}
-.door-half.right::after{left:24px}
+/* ===== NEW ULTRA PREMIUM BLACK GOLD BOUTIQUE INTRO ===== */
+#welcomeGate{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.gate-bg{position:absolute;inset:0;background:radial-gradient(circle at center,#1a1a1a 0%,#000 100%)}
+.door-wrap{position:absolute;inset:0;display:flex;z-index:2}
+.door-half{width:50%;height:100%;background:linear-gradient(180deg,#2a2410 0%,#d4af37 20%,#8a6d00 50%,#3a2a00 100%);border:1px solid #ffd700;position:relative;transition:transform 1.6s cubic-bezier(.77,0,.175,1);box-shadow:inset 0 0 30px rgba(0,0,0,0.5)}
+.door-half::before{content:'';position:absolute;inset:20px;border:1px solid rgba(255,215,0,.2);border-radius:2px}
+.door-half.left{border-left:none; border-right:2px solid #ffd700}
+.door-half.right{border-right:none; border-left:2px solid #ffd700}
 #welcomeGate.open .door-half.left{transform:translateX(-102%)}
 #welcomeGate.open .door-half.right{transform:translateX(102%)}
-.gate-menu{position:absolute;z-index:10001;top:50%;left:50%;transform:translate(-50%,-50%);background:#ffffff;padding:26px 20px;border-radius:26px;box-shadow:0 25px 80px rgba(0,0,0,.5);width:90%;max-width:370px;text-align:center;display:none;border:1px solid #e2e8f0}
-.gate-menu.show{display:block;animation:pop 0.6s cubic-bezier(.34,1.56,.64,1)}
-@keyframes pop{from{transform:translate(-50%,-50%) scale(.7);opacity:0}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
-.gate-menu h2{color:#1e3a8a;margin:0 0 6px;font-size:24px}
-.gate-menu p{color:#64748b;font-size:13px;margin:0 0 14px}
-.gate-menu button{margin-top:10px;font-size:15px;padding:14px;border-radius:14px}
-.gate-menu button:nth-child(3){background:#2563eb}
-.gate-menu button:nth-child(4){background:#7c3aed}
-.gate-menu button:nth-child(5){background:#0d9488}
+.gold-light{position:absolute;top:0;left:50%;width:2px;height:100%;background:linear-gradient(to bottom, transparent, #ffd700, transparent);box-shadow:0 0 40px #ffd700, 0 0 80px #ffd700;opacity:0;transition:opacity 0.8s ease 0.5s;z-index:1}
+#welcomeGate.open .gold-light{opacity:1}
+.gate-menu{position:relative;z-index:5;background:rgba(10,10,10,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:28px 22px;border-radius:22px;box-shadow:0 25px 80px rgba(0,0,0,.8), 0 0 0 1px rgba(212,175,55,.3), 0 0 60px rgba(212,175,55,.2);width:90%;max-width:380px;text-align:center;display:none;border:1px solid rgba(212,175,55,.25);transform:translateY(20px) scale(.92);opacity:0;transition:all 0.8s cubic-bezier(.34,1.56,.64,1) 1s}
+.gate-menu.show{display:block;transform:translateY(0) scale(1);opacity:1}
+.gate-menu h2{color:#ffec99;margin:0 0 6px;font-size:28px;font-weight:800;letter-spacing:1px;text-shadow:0 0 20px rgba(255,236,153,.5)}
+.gate-menu p{color:rgba(255,255,255,.55);font-size:12px;margin:0 0 20px;letter-spacing:1px}
+.gate-menu button{margin-top:10px;font-size:15px;padding:15px;border-radius:14px;font-weight:700;letter-spacing:0.3px}
+.gate-menu button:nth-child(3){background:linear-gradient(to right,#d4af37,#8a6d00);color:#000;box-shadow:0 0 20px rgba(212,175,55,.4)}
+.gate-menu button:nth-child(4){background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.3);color:#ffec99}
+.gate-menu button:nth-child(5){background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.3);color:#ffec99}
 .back-to-gate{width:auto !important;background:#1e2a78 !important;padding:8px 18px !important;border-radius:20px !important;margin-bottom:12px !important;display:inline-block}
 </style>
 </head>
 <body>
 <div id="welcomeGate">
 <div class="gate-bg"></div>
+<div class="gold-light"></div>
 <div class="door-wrap">
 <div class="door-half left"></div>
 <div class="door-half right"></div>
 </div>
 <div class="gate-menu" id="gateMenu">
-<h2>Welcome to ScoreLab</h2>
-<p>Darwaza khul gaya hai — neeche se koi ek choose karo</p>
-<button onclick="openSection('ai')">🤖 Seven AI Tools</button>
-<button onclick="openSection('premium')">🚀 Premium Kits</button>
+<h2>ScoreLab</h2>
+<p>POP-UP — NOW OPEN</p>
+<p style="margin-top:-15px;margin-bottom:22px;color:rgba(255,255,255,.35);font-size:11px">Darwaza khul gaya hai — neeche se koi ek choose karo</p>
+<button onclick="openSection('ai')">✨ Seven AI Tools</button>
+<button onclick="openSection('premium')">🎁 Premium Kits</button>
 <button onclick="openSection('blog')">📚 7 Blog Categories</button>
+<p style="margin-top:18px;color:rgba(212,175,55,.25);font-size:8px;letter-spacing:4px">SCORELAB-RHO.VERCEL.APP</p>
 </div>
 </div>
 <header class="site-header"><div class="header-inner">
